@@ -2,9 +2,11 @@
 var path = require('path');
 
 module.exports = {
-  entry: './frontend/index.jsx',
+  context: __dirname,
+  entry: './frontend/perfectpx.jsx',
   output: {
-    filename: './bundle.js',
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
