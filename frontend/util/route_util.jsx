@@ -1,4 +1,3 @@
-  
 import { withRouter, Route, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import React from 'react';

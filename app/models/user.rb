@@ -14,8 +14,8 @@
 #
 
 class User < ApplicationRecord
-  validates :username, presence: true, uniqueness: { case_sensitive: false }
-  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, uniqueness: { case_sensitive: false, }
+  validates :email, presence: true, uniqueness: { case_sensitive: false, }
   validates :password_digest, presence: { message: 'Password cannot be empty!'}
   validates :session_token, presence: true, uniqueness: true 
   validates :password, length: { minimum: 5, allow_nil: true }
