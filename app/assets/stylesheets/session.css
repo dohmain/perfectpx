@@ -1,0 +1,43 @@
+.session-container {
+  font-family: sans-serif;
+  display: flex;
+  margin-top: 25px;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  border: 1px solid lightgray;
+  background: white;
+  margin: auto;
+}
+
+.session-input-label {
+  padding: 10px;
+}
+
+.session-input-field {
+  width: 320px;
+  padding: 15px;
+  margin: 10px 0px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+
+}
+
+.session-input-button {
+  width: 320px;
+  padding: 15px;
+  border-radius: 25px;
+  border: 0;
+  background: mediumblue;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.session-input-button:hover {
+  cursor: pointer;
+}
