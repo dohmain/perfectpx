@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({errors}) => ({
+const mapStateToProps = ({errors}, ownProps) => ({
   formType: 'Log in',
   formTitle: 'Log in to perfectpx',
   errors: errors.session,
+  path: ownProps.match.path,
 });
 
 const mapDispatchToProps = (dispatch) => ({

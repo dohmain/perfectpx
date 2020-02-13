@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
-#  username        :string
+#  username        :string           not null
 #  email           :string           not null
 #  fname           :string
 #  lname           :string
@@ -14,7 +14,7 @@
 #
 
 class User < ApplicationRecord
-  validates :username, uniqueness: { case_sensitive: false, allow_nil: true}
+  validates :username, presence: true, uniqueness: { case_sensitive: false, }
   validates :email, presence: true, uniqueness: { case_sensitive: false, }
   validates :password_digest, presence: { message: 'Password cannot be empty!'}
   validates :session_token, presence: true, uniqueness: true 
@@ -25,7 +25,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
-    user = User.find_by(email: username) || User.find_by(username: username)
+    user = User.find_by(username: username) # figure out user log in with either email or username
     return nil unless user && user.is_password?(password)
     user 
   end

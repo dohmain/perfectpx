@@ -21,13 +21,8 @@ const receiveErrors = (errors) => ({
 export const login = (user) => dispatch => SessionAPIUtil.login(user)
   .then(user => dispatch(receiveCurrentUser(user)));
 
-export const update = (user) => dispatch => SessionAPIUtil.update(user)
-  .then(user => dispatch(receiveCurrentUser(user)));
-
 export const logout = () => dispatch => SessionAPIUtil.logout()
   .then(() => dispatch(logoutCurrentUser()));
 
-export const signup = (user) => dispatch => {
-  return SessionAPIUtil.signup(user)
-  .then(user => dispatch(receiveCurrentUser(user)))
-};
+export const signup = (user) => dispatch => SessionAPIUtil.signup(user)
+  .then(user => dispatch(receiveCurrentUser(user)));
