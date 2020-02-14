@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  before_action :ensure_logged_in!, only: [:show, :index]
+  before_action :ensure_logged_in!, only: [:show, :index, :update]
 
   def index
     @users = User.all
@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in!(@user)
-      render :show
+      render 'api/users/onboarding'
     else
       render json: @user.errors.full_messages, status: 401
     end
@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = selected_user
+    @user = User.find(params[:id])
     if @user && @user.update_attributes(user_params)
       render :show
     elsif !@user
@@ -44,7 +44,7 @@ class Api::UsersController < ApplicationController
   private 
 
   def user_params 
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:email, :password, :username, :fname, :lname)
   end
 
 end

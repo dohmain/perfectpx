@@ -18,3 +18,29 @@
    background: whitesmoke;
    margin: 0;
  }
+
+ #formhr {
+   position: relative;
+   overflow: hidden;
+ }
+ #formhr::before {
+    right: 100%;
+    margin-right: 15px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 150px;
+    background: darkgray;
+ }
+
+ #formhr::after {
+   left: 100%;
+   margin-left: 15px;
+   content: '';
+   position: absolute;
+   top: 50%;
+   height: 2px;
+   width: 150px;
+   background: darkgray;
+ }
