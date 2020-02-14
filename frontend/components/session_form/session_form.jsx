@@ -9,6 +9,11 @@ class SessionForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoUserLogin = this.demoUserLogin.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -25,11 +30,17 @@ class SessionForm extends React.Component {
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map((error) => (
-          <li>{error}</li>
+        {this.props.errors.map((error, i) => (
+          <li key={`err.${i}`}>{error}</li>
         ))}
       </ul>
     );
+  }
+
+  demoUserLogin(e) {
+    e.preventDefault()
+    const demoUser = { email: 'demo@demo.com', password:'hunter2020' };
+    this.props.action(demoUser);
   }
 
   render() {
@@ -61,18 +72,18 @@ class SessionForm extends React.Component {
                  className='session-input-button' 
                  value={this.props.formType} />
           <br/>
-
-          <input type="submit" 
-                 className='session-input-button' 
-                 value='Continue as Demo user' />
+          <input type="button" 
+                  className='session-input-button' 
+                  value='Continue as Demo user'
+                  onClick={this.demoUserLogin} />
           <br/>
           <div>Don't have an account? <Link to='/signup' className='session-nav-link'>Sign Up</Link></div>
           <br/>         
-        </form>
-        <br/>
         <div className='session-error-container'>
           {this.renderErrors()}
         </div>
+        </form>
+        <br/>
       </div>
     );
   }

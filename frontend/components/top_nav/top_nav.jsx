@@ -5,7 +5,7 @@ export default ({ currentUser, logout }) => {
 
   const display = currentUser ? (
     <>
-      <span className='user-greet'>Hello, {currentUser.username}</span>
+      <span className='user-greet'>email: {currentUser.email}</span>
       <button onClick={logout}>Log Out</button>
       <Link to='/' className='header-upload-button'>Upload</Link>
     </>
@@ -22,6 +22,7 @@ export default ({ currentUser, logout }) => {
         <Link to='/' className='logo-link'>PERFECTpx</Link>
       </div>
       <div className='top-nav-right'>
+        <input type='search' className='top-nav-search' placeholder='Search perfectpx'/>
         {display}
       </div>
     </div>

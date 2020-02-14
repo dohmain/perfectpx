@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false, }
   validates :password_digest, presence: { message: 'Password cannot be empty!'}
   validates :session_token, presence: true, uniqueness: true 
-  validates :password, length: { minimum: 5, allow_nil: true }
+  validates :password, length: { minimum: 8, allow_nil: true }
 
   attr_reader :password
 

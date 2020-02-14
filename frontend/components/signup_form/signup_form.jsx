@@ -11,6 +11,11 @@ class SignupForm extends React.Component {
     };
     this.selectTab = this.selectTab.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoUserLogin = this.demoUserLogin.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
   }
 
   selectTab(num) {
@@ -28,6 +33,22 @@ class SignupForm extends React.Component {
     this.props.action(this.state);
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`err.${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  demoUserLogin(e) {
+    e.preventDefault()
+    const demoUser = { email: 'demo@demo.com', password:'hunter2020' };
+    this.props.login(demoUser);
+  }
+
   render() {
     const pane = this.state.selectedPane === 0 ? (
 
@@ -41,9 +62,10 @@ class SignupForm extends React.Component {
             value='Continue with Email'
             onClick={() => this.selectTab(1)} />
         <br/>
-        <input type="submit" 
+        <input type="button" 
             className='session-input-button' 
-            value='Continue as Demo user' />
+            value='Continue as Demo user'
+            onClick={this.demoUserLogin} />
         <br/>
         <div>
           Already have an account? <Link to='/login' className='session-nav-link'>Log In</Link>
@@ -54,12 +76,12 @@ class SignupForm extends React.Component {
       <form className='session-form' 
             onSubmit={this.handleSubmit}>
         <br/>
-        <span>Try out the <Link to='/'>Demo</Link></span>
+        <span>Try out the <Link to='/' onClick={this.demoUserLogin} >Demo</Link></span>
         <br/>
         <div><span id='formhr'>or</span></div>
         <label className='session-input-label'>Email* 
             <br/>
-            <input type="text" 
+            <input type="email" 
                   className='session-input-field' 
                   value={this.state.email} 
                   onChange={this.handleInput('email')} />
@@ -69,7 +91,8 @@ class SignupForm extends React.Component {
             <input type="password" 
                     className='session-input-field' 
                     value={this.state.password} 
-                    onChange={this.handleInput('password')} />
+                    onChange={this.handleInput('password')}
+                    placeholder='(minimum 8 characters)' />
           </label>
           <br/>
           <input type="submit" 
@@ -80,6 +103,9 @@ class SignupForm extends React.Component {
           Already have an account? <Link to='/login' className='session-nav-link'>Log In</Link>
         </div>
         <br/>
+        <div className='session-error-container'>
+          {this.renderErrors()}
+        </div>
       </form>
     )
 
