@@ -24,7 +24,7 @@ export default ({ currentUser, logout }) => {
   const display = currentUser ? (
     <>
       <div className='header-user-dropdown'>
-        <img src='/assets/user.png' onClick={() => handleDropdown()} className='header-user-dropbtn header-user-icon' />
+        <img src={window.userHeaderIconURL} onClick={() => handleDropdown()} className='header-user-dropbtn header-user-icon' />
         <div id='userDropdown' className='header-user-dropdown-content'>
           <a className='dropdown-link'>Profile</a>
           <a className='dropdown-link'>Settings</a>
