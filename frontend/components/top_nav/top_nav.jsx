@@ -1,12 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import user from '../../../app/assets/images/user.png'
 
 export default ({ currentUser, logout }) => {
 
+  const handleDropdown = () => {
+    return document.getElementById('userDropdown').classList.toggle('show');
+  };
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.header-user-dropbtn')) {
+      let dropdowns = document.getElementsByClassName('header-user-dropdown-content');
+      let i;
+      for (i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
   const display = currentUser ? (
     <>
-      <span className='user-greet'>email: {currentUser.email}</span>
-      <button onClick={logout}>Log Out</button>
+      <div className='header-user-dropdown'>
+        <img src='/assets/user.png' onClick={() => handleDropdown()} className='header-user-dropbtn header-user-icon' />
+        <div id='userDropdown' className='header-user-dropdown-content'>
+          <a className='dropdown-link'>Profile</a>
+          <a className='dropdown-link'>Settings</a>
+          <br/>
+          <a className='dropdown-link' onClick={logout}>Log out</a>
+        </div>
+      </div>
+      {/* <img className='header-user-icon' src='/assets/user.png' /> */}
       <Link to='/' className='header-upload-button'>Upload</Link>
     </>
   ) : (
@@ -22,7 +48,6 @@ export default ({ currentUser, logout }) => {
         <Link to='/' className='logo-link'>PERFECTpx</Link>
       </div>
       <div className='top-nav-right'>
-        <input type='search' className='top-nav-search' placeholder='Search perfectpx'/>
         {display}
       </div>
     </div>

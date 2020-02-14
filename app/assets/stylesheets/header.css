@@ -17,13 +17,16 @@
 }
 
 .top-nav-right {
+  display: inline;
+  align-content: center;
   padding: 20px;
+
 }
 
 .logo-link {
   text-decoration: none;
   color: black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Palanquin', sans-serif;
   font-size: 28px;
   font-weight: normal;
 }
@@ -85,4 +88,54 @@
 
 .top-nav-search:focus {
   outline: none;
+}
+
+.header-user-icon {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border: 0px solid whitesmoke;
+  border-radius: 50%;
+  background: whitesmoke;
+}
+
+.header-user-icon:hover {
+  background: lightgray;
+  cursor: pointer;
+}
+
+.header-user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.header-user-dropdown-content {
+  position: absolute;
+  display: none;
+  width: 100px;
+  background: white;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  top: 50px;
+  box-shadow: 5px 5px 10px 2px lightgray, -5px -5px 10px 2px lightgray;
+}
+
+.header-user-dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-link:hover {
+  cursor: pointer;
+  color: white;
+  background: blue;
+}
+.show {
+  display: block;
 }

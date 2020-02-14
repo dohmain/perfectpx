@@ -32,7 +32,7 @@ class Api::UsersController < ApplicationController
   end
 
   def destroy
-    @user = selected_user
+    @user = User.find(params[:id])
     if @user
       @user.destroy
       render :show

@@ -5,6 +5,7 @@ class OnboardingForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: this.props.user.id,
       email: this.props.user.email,
       username: '',
       fname: '',
@@ -15,7 +16,7 @@ class OnboardingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.update(this.state);
+    this.props.update(this.state).then(() => this.props.history.push('/'));
   }
   
   handleInput(field) {
@@ -38,21 +39,24 @@ class OnboardingForm extends React.Component {
             <input type="text" 
                   className='session-input-field' 
                   value={this.state.fname} 
-                  onChange={this.handleInput('fname')} />
+                  onChange={this.handleInput('fname')}
+                  required />
           </label>
           <label className='session-input-label'>Last Name 
           <br/>
             <input type="text" 
                     className='session-input-field' 
                     value={this.state.lname} 
-                    onChange={this.handleInput('lname')} />
+                    onChange={this.handleInput('lname')}
+                    required />
           </label>
           <label className='session-input-label'>Username 
           <br/>
             <input type="text" 
                     className='session-input-field' 
                     value={this.state.username} 
-                    onChange={this.handleInput('username')} />
+                    onChange={this.handleInput('username')}
+                    required />
           </label>
           <br/>
 
