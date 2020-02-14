@@ -14,6 +14,11 @@ class OnboardingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    let suggestedUsername = this.props.user.email.split('@')[0];
+    this.setState({ username: suggestedUsername })
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.update(this.state).then(() => this.props.history.push('/'));

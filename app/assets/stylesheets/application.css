@@ -18,31 +18,14 @@
    background: whitesmoke;
    margin: 0;
    font-family: sans-serif;
-
  }
 
- #formhr {
-   position: relative;
-   overflow: hidden;
- }
- #formhr::before {
-    right: 100%;
-    margin-right: 15px;
-    content: '';
-    position: absolute;
-    top: 50%;
-    height: 2px;
-    width: 150px;
-    background: darkgray;
- }
+ 
+  .splash-image {
+    width: 100%;
+    height: auto;
+  }
 
- #formhr::after {
-   left: 100%;
-   margin-left: 15px;
-   content: '';
-   position: absolute;
-   top: 50%;
-   height: 2px;
-   width: 150px;
-   background: darkgray;
+ .main-content-box {
+   width: 100%;
  }
