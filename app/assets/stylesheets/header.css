@@ -78,18 +78,6 @@
   color: blue;
 }
 
-.top-nav-search {
-  width: 160px;
-  padding: 10px 15px;
-  border-radius: 20px;
-  background: whitesmoke;
-  border: 0px;
-}
-
-.top-nav-search:focus {
-  outline: none;
-}
-
 .header-user-icon {
   width: 20px;
   height: 20px;

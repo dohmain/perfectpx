@@ -1,0 +1,52 @@
+.profile-main-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  padding-top: 100px;
+  /* padding-bottom: 20px; */
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.profile-username-display {
+  font-size: 32px;
+}
+
+.profile-name-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-name-container > div {
+  padding: 0 10px;
+}
+
+.profile-follow-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+.profile-follow-count {
+  color: gray;
+  padding: 0 10px;
+}
+
+.profile-follow-count:hover {
+  color: lightgray;
+}
+
+.profile-photo-gallery {
+  padding: 15px 0;
+  border-bottom: 2px solid blue;
+}
+
+.profile-photo-gallery-heading {
+  font-weight: bold;
+  color: blue;
+}

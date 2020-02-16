@@ -1,0 +1,39 @@
+.personal-information-form {
+  display: flex; 
+  flex-direction: column;
+  width: 370px;
+  border: 1px solid lightgray;
+  background: white;
+  margin: auto;
+  padding: 0 15px
+}
+
+.personal-info-input-label {
+  font-size: 12px;
+  color: gray;
+  padding-top: 15px;
+}
+
+.personal-info-input-field {
+  width: 100%;
+  font-size: 14px;
+  padding: 5px 0px;
+  border: none;
+  border-bottom: 3px solid lightgray;
+}
+
+.personal-info-input-field:focus {
+  outline: none;
+}
+
+.personal-info-input-field::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: lightgray}
+
+.personal-info-submit-container {
+  display: block;
+  position: relative;
+  margin: auto;
+  padding-bottom: 15px;
+}

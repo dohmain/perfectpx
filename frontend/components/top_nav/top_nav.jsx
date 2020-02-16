@@ -26,8 +26,10 @@ export default ({ currentUser, logout }) => {
       <div className='header-user-dropdown'>
         <img src={window.userHeaderIconURL} onClick={() => handleDropdown()} className='header-user-dropbtn header-user-icon' />
         <div id='userDropdown' className='header-user-dropdown-content'>
-          <a className='dropdown-link'>Profile</a>
-          <a className='dropdown-link'>Settings</a>
+          {/* <a className='dropdown-link'>Profile</a> */}
+          <Link to={`/${currentUser.username}`} className='dropdown-link'>Profile</Link>
+          {/* <a className='dropdown-link'>Settings</a> */}
+          <Link to={`/${currentUser.username}/my_information`} className='dropdown-link'>Settings</Link>
           <br/>
           <a className='dropdown-link' onClick={logout}>Log out</a>
         </div>
