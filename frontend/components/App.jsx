@@ -8,12 +8,15 @@ import SignupFormContainer from '../components/signup_form/signup_form_container
 import OnboardingFormContainer from '../components/onboarding_form/onboarding_form_container';
 import ProfilePageContainer from '../components/profile_page/profile_page_container';
 import MyInformationContainer from '../components/my_information/my_information_container';
-
+import PhotoGalleryContainer from '../components/photo_gallery/photo_gallery_container';
+import Discover from './discover'
 const App = () => (
   <div>
     <header className='top-nav-header'>
       <Route path='/' component={TopNavContainer} />
     </header>
+      <Route path='/discover' component={PhotoGalleryContainer} />
+
     <Switch>
       <AuthRoute exact path='/' component={SplashPage} />
       <AuthRoute path='/login' component={LoginFormContainer} />

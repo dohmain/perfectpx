@@ -1,13 +1,13 @@
 <% if logged_in? %>
   <script type="text/javascript">
     window.currentUser = <%= render(
-      "api/users/user.json.jbuilder",
+      'api/users/user.json.jbuilder',
       user: current_user
     ).html_safe %>
   </script>
 <% end %>
 
-<link href="https://fonts.googleapis.com/css?family=Palanquin&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Palanquin&display=swap' rel='stylesheet'>
 
 <main id='root'>
   root.html.erb

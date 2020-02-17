@@ -19,10 +19,10 @@ export default ({ currentUser, logout }) => {
   return (
     <div className='top-nav-container'>
       <div className='nav-logo'>
-        <Link to='/' className='logo-link'>PERFECTpx</Link>
+        <Link to='/' className='logo-link'>PERFECTpx this is the change</Link>
       </div>
       <div className='top-nav-right'>
-        {display}
+        {display} 
       </div>
     </div>
   )
