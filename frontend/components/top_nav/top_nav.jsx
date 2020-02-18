@@ -21,7 +21,7 @@ export default ({ currentUser, logout }) => {
     }
   }
 
-  const display = currentUser ? (
+  const right_nav = currentUser ? (
     <>
       <div className='header-user-dropdown'>
         <img src={window.userHeaderIconURL} onClick={() => handleDropdown()} className='header-user-dropbtn header-user-icon' />
@@ -35,7 +35,7 @@ export default ({ currentUser, logout }) => {
         </div>
       </div>
       {/* <img className='header-user-icon' src='/assets/user.png' /> */}
-      <Link to='/' className='header-upload-button'>Upload</Link>
+      <Link to='/upload' className='header-upload-button'>Upload</Link>
     </>
   ) : (
     <>
@@ -49,9 +49,11 @@ export default ({ currentUser, logout }) => {
       <div className='nav-logo'>
         <Link to='/' className='logo-link'>PERFECTpx</Link>
         <Link to='/discover' className='top-nav-link'>Discover</Link>
+        <a href='#' className='top-nav-link'>LinkedIn</a>
+        <a href='#' className='top-nav-link'>Github</a>
       </div>
       <div className='top-nav-right'>
-        {display}
+        {right_nav}
       </div>
     </div>
   )

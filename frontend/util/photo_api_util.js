@@ -1,13 +1,3 @@
-export const postPhoto = photo => {
-  return (
-    $.ajax({
-      url: `/api/photos`,
-      method: 'POST',
-      data: { photo }
-    })
-  )
-}
-
 export const fetchPhotos = () => {
   return (
     $.ajax({
@@ -30,6 +20,18 @@ export const updatePhoto = photo => {
       url: `/api/photos/${photo.id}`,
       method: `PATCH`,
       data: { photo }
+    })
+  )
+}
+
+export const postPhoto = formData => {
+  return (
+    $.ajax({
+      url: '/api/photos',
+      method: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false
     })
   )
 }

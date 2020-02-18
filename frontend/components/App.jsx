@@ -10,6 +10,7 @@ import ProfilePageContainer from '../components/profile_page/profile_page_contai
 import MyInformationContainer from '../components/my_information/my_information_container';
 import PhotoGalleryContainer from '../components/photo_gallery/photo_gallery_container';
 import PhotoShowContainer from '../components/photo_gallery/photo_show_container';
+import PhotoFormContainer from '../components/photo_gallery/photo_form_container';
 
 const App = () => (
   <div>
@@ -21,6 +22,7 @@ const App = () => (
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
       <ProtectedRoute path='/onboarding' component={OnboardingFormContainer} />
+      <ProtectedRoute path='/upload' component={PhotoFormContainer} />
       <Route exact path='/discover' component={PhotoGalleryContainer} />
       <Route exact path='/photo/:photoId' component={PhotoShowContainer} />
       <ProtectedRoute exact path='/:username/my_information' component={MyInformationContainer} />
