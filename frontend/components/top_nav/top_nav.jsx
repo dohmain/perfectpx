@@ -48,6 +48,7 @@ export default ({ currentUser, logout }) => {
     <div className='top-nav-container'>
       <div className='nav-logo'>
         <Link to='/' className='logo-link'>PERFECTpx</Link>
+        <Link to='/discover' className='top-nav-link'>Discover</Link>
       </div>
       <div className='top-nav-right'>
         {display}
