@@ -41,14 +41,7 @@ class PhotoForm extends React.Component {
     if (this.state.pxFile) {
       formData.append('photo[pxFile]', this.state.pxFile);
     }
-    // this.props.postPhoto(formData)
-    $.ajax({
-      url: '/api/photos',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    })
+    this.props.postPhoto(formData)
   }
 
   render() {
@@ -76,7 +69,8 @@ class PhotoForm extends React.Component {
             onChange={this.handleInput('description')} />
         </label>
 
-        <input type="file"
+        <input type='file'
+          accept='image/png, image/jpeg'
           onChange={this.handleFile} />
         <button>Upload!</button>
         {preview}
