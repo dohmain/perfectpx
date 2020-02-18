@@ -37,6 +37,7 @@ class MyInformation extends React.Component {
             <input type='text'
                   className='personal-info-input-field' 
                   value={this.state.username} 
+                  onChange={this.handleInput('username')}
                   placeholder="Username"
                   required />
           </label>
