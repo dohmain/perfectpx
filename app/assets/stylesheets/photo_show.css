@@ -1,0 +1,15 @@
+.photo-show-page-container {
+  display: flex;
+  width: 100%;
+  justify-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 50px auto;
+}
+
+.photo-show-image {
+  max-height: 500px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 50px; 
+}

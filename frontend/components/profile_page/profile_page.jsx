@@ -23,6 +23,7 @@ class ProfilePage extends React.Component {
           <div className='profile-photo-gallery'>
             <span className='profile-photo-gallery-heading'>PHOTOS</span>
           </div>
+          
         </div>
       </div>
     )

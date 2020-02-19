@@ -17,18 +17,11 @@ const receivePhoto = photo => {
   })
 };
 
-const receiveErrors = (errors) => {
-  return ({
-    type: RECEIVE_SESSION_ERRORS,
-    errors
-  })
-};
-
 export const getPhotos = () => dispatch => PhotoAPIUtil.fetchPhotos()
   .then(photos => dispatch(receiveAllPhotos(photos)))
 
 export const getPhoto = (id) => dispatch => PhotoAPIUtil.fetchPhoto(id)
   .then(photo => dispatch(receivePhoto(photo)))
 
-export const postPhoto = (photo) => dispatch => PhotoAPIUtil.postPhoto(photo)
-  .then(photo => dispatch(receivePhoto(photo)), error => dispatch(receiveErrors(error.responseJSON)));
+export const postPhoto = (formData) => dispatch => PhotoAPIUtil.postPhoto(formData)
+  .then(photo => dispatch(receivePhoto(photo)));

@@ -38,7 +38,7 @@ class MyInformation extends React.Component {
                   className='personal-info-input-field' 
                   value={this.state.username} 
                   placeholder="Username"
-                  required />
+                  readOnly />
           </label>
           <label className='personal-info-input-label'>Email
           <br/>

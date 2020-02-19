@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PhotoForm from './photo_form';
-import { postPhoto } from '../../util/photo_api_util'
+import { postPhoto } from '../../actions/photo_actions'
 
 const mapStateToProps = state => {
   return ({

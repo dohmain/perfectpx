@@ -25,6 +25,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :photos,
+  foreign_key: :creator_id,
   class_name: :Photo
 
   def self.find_by_credentials(username, password)

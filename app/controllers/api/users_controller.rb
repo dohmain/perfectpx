@@ -1,10 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  before_action :ensure_logged_in!, only: [:show, :index, :update]
-
-  def index
-    @users = User.all
-  end
+  before_action :ensure_logged_in!, only: [:update]
 
   def create
     @user = User.new(user_params)
@@ -18,6 +14,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    render :show
   end
 
   def update
@@ -28,16 +25,6 @@ class Api::UsersController < ApplicationController
       render json: ['Could not locate user'], status: 400
     else
       render json: @user.errors.full_messages, status: 401
-    end
-  end
-
-  def destroy
-    @user = User.find(params[:id])
-    if @user
-      @user.destroy
-      render :show
-    else
-      render json: ['Could not find user'], status: 422
     end
   end
 

@@ -27,7 +27,7 @@ export const updatePhoto = photo => {
 export const postPhoto = formData => {
   return (
     $.ajax({
-      url: '/api/photos',
+      url: `/api/photos`,
       method: 'POST',
       data: formData,
       contentType: false,

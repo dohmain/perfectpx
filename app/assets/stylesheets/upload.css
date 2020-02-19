@@ -1,0 +1,12 @@
+.upload-preview-image {
+  width: 350px;
+}
+
+.upload-text-area {
+  width: 320px;
+  height: 100px;
+  padding: 15px;
+  margin: 10px 0px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}

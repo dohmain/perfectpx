@@ -39,48 +39,40 @@ class PhotoForm extends React.Component {
     formData.append('photo[description]', this.state.description);
     formData.append('photo[creator_id]', this.state.creator_id);
     if (this.state.pxFile) {
-      formData.append('photo[pxFile]', this.state.pxFile);
+      formData.append('photo[px]', this.state.pxFile);
     }
-    // this.props.postPhoto(formData)
-    $.ajax({
-      url: '/api/photos',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    })
+    this.props.postPhoto(formData).then(() => this.props.history.push('/'))
   }
 
   render() {
     console.log(this.state);
-    const preview = this.state.pxURL ? <img src={this.state.pxURL} /> : null;
+    const preview = this.state.pxURL ? <img className='upload-preview-image' src={this.state.pxURL} /> : null;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <label>Title:
-        <input type='text'
-          value={this.state.title}
-          onChange={this.handleInput('title')} />
-        </label>
+      <div className='session-container'>
+        <form className='session-form' onSubmit={this.handleSubmit}>
+          <br/>
+          <h3>Upload to perfectpx!</h3>
+          <input type="file"
+            onChange={this.handleFile} />
+          {preview}
+          <label className='session-input-label'>Title:<br/>
+          <input type='text'
+            value={this.state.title}
+            className='session-input-field'
+            onChange={this.handleInput('title')} />
+          </label>
 
-        <label>Description:
-          <textarea
-            value={this.state.description}
-            onChange={this.handleInput('description')} />
-        </label>
+          <label className='session-input-label'>Description:<br/>
+            <textarea
+              value={this.state.description}
+              className='upload-text-area'
+              onChange={this.handleInput('description')} />
+          </label>
 
-        <input type="file"
-          onChange={this.handleFile} />
-        <button>Upload!</button>
-        {preview}
-      </form>
+          <button className='session-input-button'>Upload!</button>
+          <br/>
+        </form>
+      </div>
     );
   }
 }
