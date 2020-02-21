@@ -1,37 +1,78 @@
 .top-nav-header {
-  position: fixed;
+  position: sticky;
   top: 0;
+  display: flex;
   background: white;
   width: 100%;
   z-index: 1;
   margin: 0 auto;
+  padding: 0 32px;
+  height: 72px;
+  box-sizing: border-box;
 }
 
 .top-nav-container {
+  width: 100%;
   display: flex;
-  /* width: 100%; */
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.nav-logo {
-  padding: 30px 75px;
+.top-nav-logo-link-container {
+  display: flex;
+  flex-direction: row;
 }
 
-.top-nav-right {
-  display: inline-flex;
-  align-content: center;
-  padding: 30px 75px;
+.logo-link-container {
+  display: flex;
+  align-items: center;
 }
-
 .logo-link {
   text-decoration: none;
   color: black;
   font-family: 'Palanquin', sans-serif;
   font-size: 28px;
   font-weight: normal;
+  margin-right: 10px;
 }
 
 .logo-link:hover {
+  color: blue;
+}
+
+.top-nav-link-container {
+  display: flex;
+  align-items: center;
+  margin: 0 10px
+}
+
+.top-nav-link {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.top-nav-link:hover {
+  color: mediumblue;
+}
+
+.top-nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-login-button {
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+}
+
+.header-login-button:hover {
   color: blue;
 }
 
@@ -50,41 +91,7 @@
   border-radius: 20px;
 }
 
-.header-login-button {
-  display: flex;
-  align-items: center;
-  padding: 0px 15px;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  color: black;
-}
-
-.header-upload-button {
-  display: flex;
-  height: 40px;
-  align-self: center;
-  align-items: center;
-  padding: 0px 15px;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  color: black;
-  border: 2px solid black;
-  border-radius: 20px;
-}
-
 .header-signup-button:hover {
-  color: blue;
-}
-
-.header-login-button:hover {
-  color: blue;
-}
-
-.header-upload-button:hover {
   color: blue;
 }
 
@@ -103,6 +110,26 @@
 .header-user-icon:hover {
   background: lightgray;
   cursor: pointer;
+}
+
+.header-upload-button {
+  display: flex;
+  height: 40px;
+  align-self: center;
+  align-items: center;
+  padding: 0px 15px;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+
+.header-upload-button:hover {
+  background: lightgray;
 }
 
 .header-user-dropdown {

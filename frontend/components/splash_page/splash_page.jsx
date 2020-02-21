@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class SplashPage extends React.Component {
 
@@ -11,4 +12,4 @@ class SplashPage extends React.Component {
   }
 };
 
-export default SplashPage;
+export default withRouter(SplashPage);

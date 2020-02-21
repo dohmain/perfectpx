@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { withRouter } from 'react-router';
 import TopNavContainer from './top_nav/top_nav_container';
 import SplashPage from '../components/splash_page/splash_page'
 import LoginFormContainer from '../components/session_form/login_form_container';
@@ -11,6 +12,7 @@ import MyInformationContainer from '../components/my_information/my_information_
 import PhotoGalleryContainer from '../components/photo_gallery/photo_gallery_container';
 import PhotoShowContainer from '../components/photo_gallery/photo_show_container';
 import PhotoFormContainer from '../components/photo_gallery/photo_form_container';
+import CommentsContainer from '../components/comments/comments_container';
 
 const App = () => (
   <div>
@@ -24,11 +26,12 @@ const App = () => (
       <ProtectedRoute path='/onboarding' component={OnboardingFormContainer} />
       <ProtectedRoute path='/upload' component={PhotoFormContainer} />
       <Route exact path='/discover' component={PhotoGalleryContainer} />
+      <Route exact path='/comments' component={CommentsContainer} />
       <Route exact path='/photo/:photoId' component={PhotoShowContainer} />
-      <ProtectedRoute exact path='/:username/my_information' component={MyInformationContainer} />
-      <ProtectedRoute exact path='/:username' component={ProfilePageContainer} />
+      <ProtectedRoute exact path='/users/:userId/my_information' component={MyInformationContainer} />
+      <Route exact path='/users/:userId' component={ProfilePageContainer} />
     </Switch>
   </div>
 )
 
-export default App;
+export default withRouter(App);

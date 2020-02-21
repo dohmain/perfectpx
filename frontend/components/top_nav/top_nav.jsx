@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import user from '../../../app/assets/images/user.png'
 
 export default ({ currentUser, logout }) => {
 
@@ -26,15 +25,12 @@ export default ({ currentUser, logout }) => {
       <div className='header-user-dropdown'>
         <img src={window.userHeaderIconURL} onClick={() => handleDropdown()} className='header-user-dropbtn header-user-icon' />
         <div id='userDropdown' className='header-user-dropdown-content'>
-          {/* <a className='dropdown-link'>Profile</a> */}
-          <Link to={`/${currentUser.username}`} className='dropdown-link'>Profile</Link>
-          {/* <a className='dropdown-link'>Settings</a> */}
-          <Link to={`/${currentUser.username}/my_information`} className='dropdown-link'>Settings</Link>
+          <Link to={`/users/${currentUser.id}`} className='dropdown-link'>Profile</Link>
+          <Link to={`/users/${currentUser.id}/my_information`} className='dropdown-link'>Settings</Link>
           <br/>
           <a className='dropdown-link' onClick={logout}>Log out</a>
         </div>
       </div>
-      {/* <img className='header-user-icon' src='/assets/user.png' /> */}
       <Link to='/upload' className='header-upload-button'>Upload</Link>
     </>
   ) : (
@@ -46,11 +42,15 @@ export default ({ currentUser, logout }) => {
 
   return (
     <div className='top-nav-container'>
-      <div className='nav-logo'>
-        <Link to='/' className='logo-link'>PERFECTpx</Link>
-        <Link to='/discover' className='top-nav-link'>Discover</Link>
-        <a href='#' className='top-nav-link'>LinkedIn</a>
-        <a href='#' className='top-nav-link'>Github</a>
+      <div className='top-nav-logo-link-container'>
+        <div className='logo-link-container'>
+          <Link to='/' className='logo-link'>PERFECTpx</Link>
+          </div>
+        <div className='top-nav-link-container'>
+          <Link to='/discover' className='top-nav-link'>Discover</Link>
+          <a href='#' className='top-nav-link'>LinkedIn</a>
+          <a href='#' className='top-nav-link'>Github</a>
+        </div>
       </div>
       <div className='top-nav-right'>
         {right_nav}

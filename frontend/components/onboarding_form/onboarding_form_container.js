@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { update } from '../../actions/session_actions';
 import OnboardingForm from './onboarding_form';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = state => {
   return ({
@@ -14,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OnboardingForm)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OnboardingForm))

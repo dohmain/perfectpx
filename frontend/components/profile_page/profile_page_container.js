@@ -1,10 +1,26 @@
 import { connect } from 'react-redux';
 import ProfilePage from './profile_page';
+import { withRouter } from 'react-router';
+import { fetchUser } from '../../actions/user_actions';
+import { fetchUserPhotos } from '../../reducers/selectors';
+import { getPhotos } from '../../actions/photo_actions'
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+
+  const user = state.entities.users[ownProps.match.params.userId] || {};
+  const photos = fetchUserPhotos(state, user);
+
   return ({
-    user: state.entities.users[state.session.id],
+    currentUser: user,
+    photos
   })
 };
 
-export default connect(mapStateToProps, null)(ProfilePage)
+const mapDispatchToProps = dispatch => {
+  return ({
+    getUser: id => dispatch(fetchUser(id)),
+    getPhotos: () => dispatch(getPhotos())
+  })
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfilePage));

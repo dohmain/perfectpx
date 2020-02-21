@@ -1,7 +1,23 @@
 .photo-gallery-container {
-  width: 500px;
+  width: 100%;
+  padding: 0 35px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.gallery-index-photo {
+  width: 320px;
+  height: 200px;
+  text-align: center;
+  padding: 35px;
+  margin: 35px 0;
+  background: lightgray;
 }
 
 .photo-gallery-photo-item {
-  width: 100%;
+  width: auto;
+  height: 100%;
+  margin: auto;
 }

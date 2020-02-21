@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 const PhotoIndexItem = ({ photo }) => {
   return (
-    <div>
+    <div className='gallery-index-photo'>
       <Link to={`/photo/${photo.id}`}>
         <img className='photo-gallery-photo-item' src={photo.pxURL} />
       </Link>
@@ -11,4 +12,4 @@ const PhotoIndexItem = ({ photo }) => {
   )
 }
 
-export default PhotoIndexItem
+export default withRouter(PhotoIndexItem);

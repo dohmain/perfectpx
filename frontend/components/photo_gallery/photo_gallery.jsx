@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import PhotoIndexItem from './photo_index_item'
 
 class PhotoGallery extends React.Component {
@@ -21,4 +21,4 @@ class PhotoGallery extends React.Component {
   }
 }
 
-export default PhotoGallery;
+export default withRouter(PhotoGallery);

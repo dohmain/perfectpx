@@ -1,4 +1,6 @@
 import React from 'react';
+import CommentsContainer from '../comments/comments_container'
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 class PhotoShow extends React.Component {
@@ -11,11 +13,13 @@ class PhotoShow extends React.Component {
   }
 
   render() {
-    const px = this.props.photo
+    const px = this.props.photo;
+    const user = this.props.user;
+    const uploadTime = this.props.photo.created_at ? this.props.photo.created_at.split('T')[0] : null
     if (!px) return null;
     return (
       <div className='photo-show-page-container'>
-        <div className='photo-show-image-conatiner'>        
+        <div className='photo-show-image-container'>        
           <img className='photo-show-image' src={px.pxURL} />
         </div>
         <div className='photo-details-container'>
@@ -23,22 +27,20 @@ class PhotoShow extends React.Component {
             <div className='photo-details-main'>
               <div className='photo-title-name'>
                 <div className='photo-details-title'>{px.title}</div>
-                <div className='photo-details-fname'>by {px.creatorFName} {px.creatorLName}</div>
+                <div className='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${user.id}`}>{user.fname} {user.lname}</Link></div>
               </div>
-              <div className='photo-creator-profile-image'>
-              </div>
-            </div>
-            <div className='photo-details-sub'>
-              <div className='photo-details-uploaded-date'>
-                {px.created_at}
-              </div>
-              <div className='photo-details-description'>
-                {px.description}
+              <div className='photo-details-sub'>
+                <div className='photo-details-uploaded-date'>
+                  Uploaded: {uploadTime}
+                </div>
+                <div className='photo-details-description'>
+                  {px.description}
+                </div>
               </div>
             </div>
           </div>
           <div className='photo-details-right-col'>
-            <h2>comments should go here</h2>
+            <CommentsContainer />
           </div>
         </div>
       </div>
@@ -46,4 +48,4 @@ class PhotoShow extends React.Component {
   }
 }
 
-export default PhotoShow;
+export default withRouter(PhotoShow);

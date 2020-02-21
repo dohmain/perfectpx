@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PhotoForm from './photo_form';
 import { postPhoto } from '../../actions/photo_actions'
+import { withRouter } from 'react-router';
 
 const mapStateToProps = state => {
   return ({
@@ -12,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
   postPhoto: (formData) => dispatch(postPhoto(formData))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoForm));
