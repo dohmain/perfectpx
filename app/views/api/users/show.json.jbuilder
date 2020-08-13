@@ -1,7 +1,5 @@
 json.users do 
-  json.set! @user.id do 
-    json.extract! @user, :id, :username, :email, :fname, :lname, :photo_ids
-  end
+  json.extract! @user, :id, :username, :email, :fname, :lname, :photo_ids
 end
 
 json.photos do

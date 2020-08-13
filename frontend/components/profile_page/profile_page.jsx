@@ -13,6 +13,7 @@ class ProfilePage extends React.Component {
   }
   
   render() {
+    debugger;
     const photos = this.props.photos.map(photo => (
       <PhotoIndexItem key={photo.id} photo={photo}/>
     ))
