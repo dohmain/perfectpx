@@ -6,7 +6,6 @@ const mapStateToProps = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.match.params.photoId] || {}
   const user = state.entities.users[photo.creator_id] || {}
   const comments = state.entities.comments
-  debugger
   return {
     photo,
     user,

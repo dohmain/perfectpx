@@ -11,17 +11,11 @@ class ProfilePage extends React.Component {
     this.props.getUser(this.props.match.params.userId);
     this.props.getPhotos();
   }
-
-  consoleThis(e) {
-    e.preventDefault();
-    console.log(this.props);
-  }
   
   render() {
     const photos = this.props.photos.map(photo => (
       <PhotoIndexItem key={photo.id} photo={photo}/>
     ))
-    debugger
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
@@ -34,7 +28,6 @@ class ProfilePage extends React.Component {
           <div className='profile-photos-container'>
               {photos}
           </div>
-          <button onClick={this.consoleThis}> consolelog</button>
         </div>
       </div>
     )

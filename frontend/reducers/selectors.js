@@ -3,7 +3,6 @@ export const fetchPhotoComments = (state, photo) => {
 }
 
 export const fetchUserPhotos = (state, user) => {
-  debugger
   if (user === false || state.entities.photos.length === 0) {
     return [];
   } else if (user.photo_ids) {
@@ -11,5 +10,4 @@ export const fetchUserPhotos = (state, user) => {
   } else {
     return []
   }
-  // return user ? user.photo_ids.map(id => state.entities.photos[id]) : [];
 }
