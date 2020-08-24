@@ -1,20 +1,28 @@
 import React from 'react';
 
 class Comments extends React.Component {
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
-  componentDidMount() {
+  // componentDidMount() {
     
-  }
+  // }
 
   render() {
+    // let comments = this.props.comments.map(comment => {
+    //   return (
+    //     <li className='comment-list-item' key={`comment-${comment.id}`}>{comment.body}</li> 
+    //   )
+    // })
+
     let comments = this.props.comments.map(comment => {
       return (
-        <li className='comment-list-item' key={`comment-${comment.id}`}>{comment.body}</li> 
+        <li className='comment-list-item' key={`comment-${comment.id}`}>{comment.body}</li>
       )
     })
+
+    debugger
 
     return (
       <div className='photo-comments-container'>

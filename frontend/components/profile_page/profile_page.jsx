@@ -4,7 +4,6 @@ import PhotoIndexItem from '../../components/photo_gallery/photo_index_item';
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
-    this.consoleThis = this.consoleThis.bind(this);
   }
 
   componentDidMount() {

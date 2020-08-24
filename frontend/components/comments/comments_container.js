@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentUserId: state.session.id,
     photo: state.entities.photos[ownProps.match.params.photoId],
-    comments: fetchPhotoComments(state, photo),
     errors: state.entities.errors
   })
 }

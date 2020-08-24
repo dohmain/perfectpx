@@ -11,6 +11,7 @@ export default (state = defaultState, action) => {
       return action.photos
 
     case RECEIVE_PHOTO:
+      debugger
       return Object.assign({}, state, action.photos)
 
     case RECEIVE_USER_PROFILE:
