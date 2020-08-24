@@ -11,7 +11,8 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, action.comments)
 
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, state, { comments: action.comments.id })
+      return Object.assign({}, state, { comments: action.user.comments })
+
     case RECEIVE_COMMENT:
       return Object.assign({}, state, { [action.comment.id]: action.comment })
 

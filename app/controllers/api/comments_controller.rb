@@ -1,11 +1,8 @@
 class Api::CommentsController < ApplicationController
   def index
-    debugger
     if (params[:photo_id]) 
-      debugger
       @comments = Comment.where('photo_id' => params[:photo_id])
     elsif (params[:user_id])
-      debugger
       @comments = Comment.where('user_id' => params[:user_id])
     end
     render :index
