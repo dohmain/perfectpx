@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { withRouter } from 'react-router';
 import TopNavContainer from './top_nav/top_nav_container';
 import SplashPage from '../components/splash_page/splash_page'
 import LoginFormContainer from '../components/session_form/login_form_container';
@@ -34,4 +33,4 @@ const App = () => (
   </div>
 )
 
-export default withRouter(App);
+export default App;

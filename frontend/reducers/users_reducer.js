@@ -11,7 +11,8 @@ const usersReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.user.id]: action.user });
 
     case RECEIVE_USER_PROFILE:
-      return Object.assign({}, state, action.users)
+      debugger
+      return Object.assign({}, state, {currentUser: action.user})
 
     case RECEIVE_PHOTO:
       return Object.assign({}, state, action.users)
