@@ -1,6 +1,13 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    debugger
+    if (params[:photo_id]) 
+      debugger
+      @comments = Comment.where('photo_id' => params[:photo_id])
+    elsif (params[:user_id])
+      debugger
+      @comments = Comment.where('user_id' => params[:user_id])
+    end
     render :index
   end
 
@@ -12,6 +19,12 @@ class Api::CommentsController < ApplicationController
           render json: @comment.errors.full_messages, status: 422 
       end
   end
+
+  def show 
+    @comment = Comment.find(params[:id])
+    render :show
+  end
+
   private
 
   def comment_params
