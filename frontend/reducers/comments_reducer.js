@@ -5,7 +5,6 @@ const defaultState = {};
 
 export default (state = defaultState, action) => {
   Object.freeze(state);
-  debugger
   switch(action.type) {
     case RECEIVE_ALL_COMMENTS:
       return Object.assign({}, state, action.comments)

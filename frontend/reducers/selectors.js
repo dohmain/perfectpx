@@ -3,7 +3,6 @@ export const fetchPhotoComments = (state, photo) => {
 }
 
 export const fetchUserPhotos = (state, user) => {
-  debugger
   if (!user || !state.entities.photos.length) {
     return []
   };
