@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 
 const PhotoIndexItem = ({ photo }) => {
   return (
@@ -12,4 +11,4 @@ const PhotoIndexItem = ({ photo }) => {
   )
 }
 
-export default withRouter(PhotoIndexItem);
+export default PhotoIndexItem;

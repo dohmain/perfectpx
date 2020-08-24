@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 
 class Comments extends React.Component {
   constructor(props){
@@ -27,4 +26,4 @@ class Comments extends React.Component {
   }
 }
 
-export default withRouter(Comments);
+export default Comments;

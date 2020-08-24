@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import PhotoShow from './photo_show';
 import { getPhoto } from '../../actions/photo_actions'
-import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.match.params.photoId] || {}
@@ -18,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
   getPhoto: id => dispatch(getPhoto(id))
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoShow))
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoShow);

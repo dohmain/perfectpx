@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 
 class PhotoForm extends React.Component {
   constructor(props){
@@ -78,4 +77,4 @@ class PhotoForm extends React.Component {
 }
 
 
-export default withRouter(PhotoForm);
+export default PhotoForm;

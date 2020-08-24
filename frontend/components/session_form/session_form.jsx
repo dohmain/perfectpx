@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -91,4 +90,4 @@ class SessionForm extends React.Component {
   }
 
 }
-export default withRouter(SessionForm);
+export default SessionForm;

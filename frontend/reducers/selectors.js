@@ -3,8 +3,10 @@ export const fetchPhotoComments = (state, photo) => {
 }
 
 export const fetchUserPhotos = (state, user) => {
-  if (!user || !state.entities.photos.length) {
-    return []
-  };
-  return user.photo_ids ? user.photo_ids.map(id => state.entities.photos[id]) : [];
+  // if (!user || !state.entities.photos.length) {
+  //   return []
+  // };
+  // return user.photo_ids ? user.photo_ids.map(id => state.entities.photos[id]) : [];
+  debugger
+  return user ? user.photo_ids.map(id => state.entities.photos[id]) : [];
 }

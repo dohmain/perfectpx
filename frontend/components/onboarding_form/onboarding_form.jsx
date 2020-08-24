@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 
 class OnboardingForm extends React.Component {
   constructor(props) {
@@ -77,4 +76,4 @@ class OnboardingForm extends React.Component {
   }
 }
 
-export default withRouter(OnboardingForm);
+export default OnboardingForm;

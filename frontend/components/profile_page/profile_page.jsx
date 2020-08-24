@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 import PhotoIndexItem from '../../components/photo_gallery/photo_index_item';
 
 class ProfilePage extends React.Component {
@@ -34,4 +33,4 @@ class ProfilePage extends React.Component {
   }
 }
 
-export default withRouter(ProfilePage);
+export default ProfilePage;

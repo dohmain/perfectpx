@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 
 // const TopNav = ({ currentUser, logout }) => {
 
@@ -96,4 +95,4 @@ class TopNav extends React.Component {
   }
 }
 
-export default withRouter(TopNav);
+export default TopNav;

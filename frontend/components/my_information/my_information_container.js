@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { update } from '../../actions/session_actions';
 import MyInformation from './my_information';
-import { withRouter } from 'react-router';
 
 const mapStateToProps = state => {
   return ({
@@ -15,4 +14,4 @@ const mapDispatchToProps = dispatch => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyInformation))
+export default connect(mapStateToProps, mapDispatchToProps)(MyInformation)

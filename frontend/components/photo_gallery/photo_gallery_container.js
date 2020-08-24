@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import PhotoGallery from './photo_gallery';
 import { getPhotos } from '../../actions/photo_actions';
-import { withRouter } from 'react-router';
 
 const mapStateToProps = state => {
   return {
@@ -14,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
   getPhotos: () => dispatch(getPhotos())
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoGallery))
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoGallery)

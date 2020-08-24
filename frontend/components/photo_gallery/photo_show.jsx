@@ -1,6 +1,5 @@
 import React from 'react';
 import CommentsContainer from '../comments/comments_container'
-import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 class PhotoShow extends React.Component {
@@ -48,4 +47,4 @@ class PhotoShow extends React.Component {
   }
 }
 
-export default withRouter(PhotoShow);
+export default PhotoShow;
