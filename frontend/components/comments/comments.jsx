@@ -22,8 +22,6 @@ class Comments extends React.Component {
       )
     })
 
-    debugger
-
     return (
       <div className='photo-comments-container'>
         <ul>

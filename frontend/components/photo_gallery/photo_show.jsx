@@ -8,12 +8,10 @@ class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.getPhotos().then(this.props.getPhoto(this.props.match.params.photoId));
     this.props.getPhoto(this.props.match.params.photoId)
   }
 
   render() {
-    debugger
     const px = this.props.photo;
     const user = this.props.user;
     const uploadTime = this.props.photo.created_at ? this.props.photo.created_at.split('T')[0] : null

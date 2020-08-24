@@ -10,15 +10,9 @@ export const fetchUserPhotos = (state, user) => {
   } else {
     return []
   }
-  // return user.photo_ids ? user.photo_ids.map(id => state.entities.photos[id]) : [];
 }
 
-// export const fetchPhotoComments = (state, photo) => {
-//   if (photo === false || state.entities.comments.length === 0) {
-//     return[];
-//   } else if (photo.comment_ids) {
-//     return photo.comment_ids.map(id => state.entities.comments[id]);
-//   } else {
-//     return []
-//   }
-// }
+export const getRandomPhoto = (photos) => {
+  return photos[Object.keys(photos)[Math.floor((Math.random()*Object.keys(photos).length))]]
+  // console.log(photos[Object.keys(photos)[Math.floor((Math.random()*Object.keys(photos).length))]])
+}

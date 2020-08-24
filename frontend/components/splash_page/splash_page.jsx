@@ -2,10 +2,14 @@ import React from 'react';
 
 class SplashPage extends React.Component {
 
+  componentDidMount() {
+    this.props.getPhotos()
+  }
   render() {
+    const splashURL = this.props.photo ? this.props.photo.pxURL : null;
     return (
       <div className='main-content-box splash'>
-        <img src={window.splashImageURL} className='splash-image'/>
+        <img src={splashURL} className='splash-image'/>
       </div>
     )
   }
