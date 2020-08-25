@@ -7,6 +7,7 @@ export const fetchComments = () => {
 }
 
 export const postComment = comment => {
+  debugger
   return (
     $.ajax({
       url: `/api/comments`,

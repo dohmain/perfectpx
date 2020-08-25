@@ -33,5 +33,5 @@ export const clearErrors = () => {
 export const getComments = () => dispatch => CommentAPIUtil.fetchComments()
   .then(comments => dispatch(receiveAllComments(comments)), error => dispatch(receiveCommentErrors(error.responseJSON)))
 
-export const postComment = (comment) => dispatch => CommentAPIUtil.postComment()
+export const postComment = (comment) => dispatch => CommentAPIUtil.postComment(comment)
   .then(comment => dispatch(receiveComment(comment)), error => dispatch(receiveCommentErrors(error.responseJSON)))
