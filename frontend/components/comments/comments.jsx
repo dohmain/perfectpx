@@ -3,6 +3,10 @@ import CommentForm from '../comments/comment_form';
 
 class Comments extends React.Component {
 
+  componentDidMount() {
+    this.props.getComments();
+  }
+
   render() {
 
     let comments = this.props.comments.map(comment => {
@@ -15,7 +19,7 @@ class Comments extends React.Component {
     let commentForm = this.props.photo ? (
       <CommentForm 
         currentUserId={this.props.currentUserId}
-        phototId={this.props.photo.id ? this.props.photo.id : null}
+        photoId={this.props.photo.id ? this.props.photo.id : null}
         postComment={this.props.postComment}
       />
     ) : (

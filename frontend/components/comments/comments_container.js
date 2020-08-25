@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { postComment, clearErrors } from '../../actions/comment_actions'
+import { postComment, clearErrors, getComments } from '../../actions/comment_actions'
 import Comments from './comments';
 import { withRouter } from 'react-router';
 // import { fetchPhotoComments } from '../../reducers/selectors';
@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return ({
     postComment: (comment) => dispatch(postComment(comment)),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    getComments: () => dispatch(getComments()),
   })
 }
 
