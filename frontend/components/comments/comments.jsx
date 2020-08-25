@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentForm from '../comments/comment_form';
 
 class Comments extends React.Component {
 
@@ -9,9 +10,22 @@ class Comments extends React.Component {
         <li className='comment-list-item' key={`comment-${comment.id}`}>{comment.body}</li>
       )
     })
+    debugger
+
+    let commentForm = this.props.photo ? (
+      <CommentForm 
+        currentUserId={this.props.currentUserId}
+        phototId={this.props.photo.id ? this.props.photo.id : null}
+        postComment={this.props.postComment}
+      />
+    ) : (
+      <></>
+    );
+     
 
     return (
       <div className='photo-comments-container'>
+        {commentForm}
         <ul>
           {comments}
         </ul>
