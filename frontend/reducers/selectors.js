@@ -3,7 +3,8 @@ export const fetchPhotoComments = (state, photo) => {
 }
 
 export const fetchUserPhotos = (state, user) => {
-  if (user === false || state.entities.photos.length === 0) {
+  debugger
+  if (!user || !state.entities.photos.length) {
     return [];
   } else if (user.photo_ids) {
     return user.photo_ids.map(id => state.entities.photos[id]);
@@ -11,6 +12,11 @@ export const fetchUserPhotos = (state, user) => {
     return []
   }
 }
+
+// export const fetchUserPhotos = (state, user) => {
+//   debugger 
+//   return 
+// }
 
 export const getRandomPhoto = (photos) => {
   return photos[Object.keys(photos)[Math.floor((Math.random()*Object.keys(photos).length))]]
