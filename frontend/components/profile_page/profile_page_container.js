@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 
   const user = state.entities.users[ownProps.match.params.userId] || {};
   const photos = fetchUserPhotos(state, user);
+  debugger
   return ({
     currentUser: user,
     photos

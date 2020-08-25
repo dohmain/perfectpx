@@ -44,7 +44,6 @@ class PhotoForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const preview = this.state.pxURL ? <img className='upload-preview-image' src={this.state.pxURL} /> : null;
     return (
       <div className='session-container'>

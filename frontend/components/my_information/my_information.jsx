@@ -15,7 +15,7 @@ class MyInformation extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.update(this.state).then(() => this.props.history.push(`/${this.state.username}`));
+    this.props.update(this.state).then(() => this.props.history.push(`/users/${this.props.user.id}`));
   }
 
   handleInput(field) {
@@ -25,6 +25,7 @@ class MyInformation extends React.Component {
   }
 
   render() {
+    debugger
     return(
       <div className='session-container'>
         <form className='personal-information-form'
