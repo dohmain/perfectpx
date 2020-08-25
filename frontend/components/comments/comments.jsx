@@ -3,9 +3,9 @@ import CommentForm from '../comments/comment_form';
 
 class Comments extends React.Component {
 
-  componentDidMount() {
-    this.props.getComments();
-  }
+  // componentDidMount() {
+  //   this.props.getComments();
+  // }
 
   render() {
 
@@ -14,7 +14,6 @@ class Comments extends React.Component {
         <li className='comment-list-item' key={`comment-${comment.id}`}>{comment.body}</li>
       )
     })
-    debugger
 
     let commentForm = this.props.photo ? (
       <CommentForm 

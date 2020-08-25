@@ -16,6 +16,7 @@ class PhotoShow extends React.Component {
     const user = this.props.user;
     const uploadTime = this.props.photo.created_at ? this.props.photo.created_at.split('T')[0] : null
     if (!px) return null;
+    debugger
     return (
       <div className='photo-show-page-container'>
         <div className='photo-show-image-container'>        

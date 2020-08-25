@@ -5,10 +5,11 @@ import { fetchPhotoComments } from '../../reducers/selectors';
 import { fetchPhoto } from '../../util/photo_api_util';
 
 const mapStateToProps = (state, ownProps) => {
-  const photo = state.entities.photos[ownProps.match.params.photoId] || {}
-  const user = state.entities.users[photo.creator_id] || {}
+  const photo = state.entities.photos[ownProps.match.params.photoId] || {};
+  const user = state.entities.users[photo.creator_id] || {};
   // const comments = state.entities.comments
-  const comments = fetchPhotoComments(state, photo)
+  const comments = fetchPhotoComments(state, photo);
+  debugger
   return {
     photo,
     user,
