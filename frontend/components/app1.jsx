@@ -33,6 +33,6 @@ const App = () => (
     <footer className='nav-footer'>
     </footer>
   </div>
-)
+) 
 
 export default App;
