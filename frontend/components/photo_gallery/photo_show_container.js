@@ -10,7 +10,6 @@ const mapStateToProps = (state, ownProps) => {
   // const comments = state.entities.comments
   const comments = fetchPhotoComments(state, photo);
   const users = state.entities.users;
-  debugger
   return {
     photo,
     user,
