@@ -30,6 +30,8 @@ const App = () => (
       <ProtectedRoute exact path='/users/:userId/my_information' component={MyInformationContainer} />
       <Route exact path='/users/:userId' component={ProfilePageContainer} />
     </Switch>
+    <footer className='nav-footer'>
+    </footer>
   </div>
 )
 
