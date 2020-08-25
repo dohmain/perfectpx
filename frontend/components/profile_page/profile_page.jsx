@@ -7,13 +7,11 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.getUser(this.props.match.params.userId);
     // this.props.getPhotos();
   }
   
   render() {
-    debugger
 
     const photos = this.props.photos ? (this.props.photos.map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))) : (null)
     

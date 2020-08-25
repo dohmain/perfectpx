@@ -25,7 +25,6 @@ class MyInformation extends React.Component {
   }
 
   render() {
-    debugger
     return(
       <div className='session-container'>
         <form className='personal-information-form'
