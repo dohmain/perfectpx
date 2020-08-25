@@ -1,19 +1,19 @@
 import React from 'react';
 import CommentForm from '../comments/comment_form';
+import CommentItem from '../comments/comment_item';
 
 class Comments extends React.Component {
 
-  // componentDidMount() {
-  //   this.props.getComments();
-  // }
-
   render() {
-
-    let comments = this.props.comments.map(comment => {
-      return (
-        <li className='comment-list-item' key={`comment-${comment.id}`}>{comment.body}</li>
-      )
-    })
+    debugger
+    let commentItems
+    if (this.props.comments) {
+      commentItems = this.props.comments.map(comment => {
+        return (
+          <CommentItem key={comment.id} comment={comment} author={this.props.users[comment.user_id]}/>
+        )
+      })
+    }
 
     let commentForm = this.props.photo ? (
       <CommentForm 
@@ -30,7 +30,7 @@ class Comments extends React.Component {
       <div className='photo-comments-container'>
         {commentForm}
         <ul>
-          {comments}
+          {commentItems}
         </ul>
       </div>
     )

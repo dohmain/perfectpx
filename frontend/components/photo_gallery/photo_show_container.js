@@ -9,11 +9,13 @@ const mapStateToProps = (state, ownProps) => {
   const user = state.entities.users[photo.creator_id] || {};
   // const comments = state.entities.comments
   const comments = fetchPhotoComments(state, photo);
+  const users = state.entities.users;
   debugger
   return {
     photo,
     user,
-    comments
+    comments,
+    users,
   }
 }
 

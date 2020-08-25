@@ -27,7 +27,6 @@ class CommentForm extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.currentUserId === null) {
       return <>no one logged in</>
     } else {
