@@ -13,11 +13,17 @@ class ProfilePage extends React.Component {
   
   toggleFollow(e) {
     e.preventDefault();
+    debugger
+    const follow = {
+      follower_id: this.props.session.id,
+      followed_id: this.props.match.params.userId
+    }
+    this.props.postFollow(follow)
   }
 
   render() {
 
-    const photos = this.props.photos ? (this.props.photos.map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))) : (null)
+    const photos = this.props.photos[0] ? (this.props.photos.map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))) : (null)
     
     return (
       <div className='main-content-box'>
