@@ -3,8 +3,9 @@ import PhotoGallery from './photo_gallery';
 import { getPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = state => {
+  const photos = state.entities.photos.allIds ? state.entities.photos.allIds.map(id => state.entities.photos[id]) : null;
   return {
-    photos: Object.values(state.entities.photos),
+    photos,
     users: state.entities.users
   }
 };
