@@ -18,7 +18,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def show 
-    @comment = Comment.find(params[:id])
+    @comment = Comment.includes(:photo).find(params[:id])
     render :show
   end
 
