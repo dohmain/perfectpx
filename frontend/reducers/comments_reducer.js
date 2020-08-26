@@ -20,7 +20,6 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, { [action.comment.id]: action.comment }, {allIds});
 
     case RECEIVE_PHOTO:
-      debugger
       allIds = action.comments ? Object.keys(action.comments) : null;
       return Object.assign({}, state, action.comments, {allIds});
       
