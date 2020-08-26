@@ -12,7 +12,8 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, action.comments, {allIds});
 
     case RECEIVE_CURRENT_USER:
-      allIds = Object.keys(action.user.comments);
+      debugger;
+      allIds = action.user.comments ? Object.keys(action.user.comments) : null;
       return Object.assign({}, state, action.user.comments, {allIds});
 
     case RECEIVE_COMMENT:
