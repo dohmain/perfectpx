@@ -5,8 +5,10 @@ const defaultState = {};
 
 export default (state = defaultState, action) => {
   Object.freeze(state);
+  let allIds;
   switch(action.type) {
     case RECEIVE_ALL_COMMENTS:
+      debugger;
       return Object.assign({}, state, action.comments)
 
     case RECEIVE_CURRENT_USER:
@@ -16,7 +18,9 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, { [action.comment.id]: action.comment })
 
     case RECEIVE_PHOTO:
-      return Object.assign({}, state, action.comments)
+      debugger;
+      allIds = Object.keys(action.comments);
+      return Object.assign({}, state, action.comments, {allIds})
       
     default:
       return state;
