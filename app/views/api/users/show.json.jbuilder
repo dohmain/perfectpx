@@ -1,6 +1,5 @@
 
 json.extract! @user, :id, :username, :email, :fname, :lname, :photo_ids, :comment_ids, :following_ids
-debugger
 
 json.photos do
   @user.photos.each do |photo|
