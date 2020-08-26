@@ -3,7 +3,9 @@ import PhotoForm from './photo_form';
 import { postPhoto } from '../../actions/photo_actions'
 
 const mapStateToProps = state => {
+  debugger
   return ({
+    photo: state.entities.photos,
     currentUserId: state.session.id
   })
 }
