@@ -1,6 +1,6 @@
 
-  json.extract! @user, :id, :username, :email, :fname, :lname, :photo_ids, :comment_ids
-
+json.extract! @user, :id, :username, :email, :fname, :lname, :photo_ids, :comment_ids, :following_ids
+debugger
 
 json.photos do
   @user.photos.each do |photo|
@@ -15,6 +15,14 @@ json.comments do
   @user.comments.each do |comment| 
     json.set! comment.id do 
       json.extract! comment, :id, :user_id, :photo_id, :body 
+    end
+  end
+end
+
+json.follows do 
+  @user.followings.each do |following|
+    json.set! following.id do 
+      json.extract! following, :id, :follower_id, :followed_id
     end
   end
 end

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
     end
     resources :comments, only: [:create, :show]
+    resources :follows
   end
 end
