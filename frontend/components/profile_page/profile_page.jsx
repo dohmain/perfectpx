@@ -4,12 +4,17 @@ import PhotoIndexItem from '../../components/photo_gallery/photo_index_item';
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
+    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
     this.props.getUser(this.props.match.params.userId);
   }
   
+  toggleFollow(e) {
+    e.preventDefault();
+  }
+
   render() {
 
     const photos = this.props.photos ? (this.props.photos.map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))) : (null)
@@ -18,6 +23,7 @@ class ProfilePage extends React.Component {
       <div className='main-content-box'>
         <div className='profile-main-container'>
           <span className='profile-username-display'>{this.props.currentUser.username}</span>
+          <button onClick={this.toggleFollow}>button</button>
           <div className='profile-name-container'><div><h3>{this.props.currentUser.fname}</h3></div><div><h3>{this.props.currentUser.lname}</h3></div></div>
           <div className='profile-follow-container'><span className='profile-follow-count'># Followers</span><span className='profile-follow-count'># Following</span></div>
           <div className='profile-photo-gallery'>
