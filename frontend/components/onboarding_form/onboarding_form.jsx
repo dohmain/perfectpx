@@ -20,7 +20,7 @@ class OnboardingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.update(this.state).then(() => this.props.history.push('/'));
+    this.props.update(this.state).then(() => this.props.history.push('/discover'));
   }
   
   handleInput(field) {
