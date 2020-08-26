@@ -13,6 +13,10 @@ class MyInformation extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getUser(this.props.match.params.userId);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.update(this.state).then(() => this.props.history.push(`/users/${this.props.user.id}`));

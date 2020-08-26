@@ -8,19 +8,20 @@ export default (state = defaultState, action) => {
   let allIds;
   switch(action.type) {
     case RECEIVE_ALL_COMMENTS:
-      debugger;
-      return Object.assign({}, state, action.comments)
+      allIds = Object.keys(action.comments);
+      return Object.assign({}, state, action.comments, {allIds});
 
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, state, { comments: action.user.comments })
+      allIds = Object.keys(action.user.comments);
+      return Object.assign({}, state, action.user.comments, {allIds});
 
     case RECEIVE_COMMENT:
-      return Object.assign({}, state, { [action.comment.id]: action.comment })
+      allIds = [action.comment.id];
+      return Object.assign({}, state, { [action.comment.id]: action.comment }, {allIds});
 
     case RECEIVE_PHOTO:
-      debugger;
       allIds = Object.keys(action.comments);
-      return Object.assign({}, state, action.comments, {allIds})
+      return Object.assign({}, state, action.comments, {allIds});
       
     default:
       return state;

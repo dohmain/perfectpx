@@ -8,7 +8,6 @@ class ProfilePage extends React.Component {
 
   componentDidMount() {
     this.props.getUser(this.props.match.params.userId);
-    // this.props.getPhotos();
   }
   
   render() {
