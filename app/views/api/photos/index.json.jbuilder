@@ -9,7 +9,7 @@ end
 json.users do 
     @photos.each do |photo|
         json.set! photo.creator.id do 
-            json.extract! photo.creator, :id, :username, :fname, :lname, :photo_ids
+            json.extract! photo.creator, :id, :username, :email, :fname, :lname, :photo_ids
         end
     end
 end
