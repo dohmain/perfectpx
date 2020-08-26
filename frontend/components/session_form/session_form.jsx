@@ -18,7 +18,10 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state).then(() => this.props.history.push('/'));
+    this.props.action(this.state).then((payload) => {
+      debugger
+      this.props.history.push(`/users/${payload.user.id}`)
+    });
   }
   
   handleInput(field) {
