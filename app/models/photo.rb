@@ -21,5 +21,6 @@ class Photo < ApplicationRecord
   foreign_key: :photo_id,
   class_name: :Comment
 
-  has_one_attached :px
+  has_one_attached :px,
+  dependent: :destroy
 end
