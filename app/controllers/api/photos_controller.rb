@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.all
+    @photos = Photo.with_attached_px.all.includes(:creator)
     render :index
   end
 
