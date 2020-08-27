@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.all.includes(:photos, :comments, :followers, :followings).find(params[:id])
+    @user = User.find(params[:id])
     render :show
   end
 
