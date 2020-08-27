@@ -3,7 +3,7 @@ class Api::FollowsController < ApplicationController
   before_action :ensure_logged_in!, only: [:create, :destroy] 
 
   def index 
-    @follows = Follow.includes(:follower).all
+    @follows = Follow.all.includes(:follower).includes(:followed)
     render :index
   end
 
@@ -21,7 +21,12 @@ class Api::FollowsController < ApplicationController
   end 
 
   def destroy 
-
+    @follow = Follow.find(params[:id])
+    if @follow.destroy 
+      render :show 
+    else 
+      render json: @follow.errors.full_messages, status: 422
+    end
   end
 
   private
