@@ -9,12 +9,11 @@ export default (state = defaultState, action) => {
   let allIds;
   switch(action.type) {
     case RECEIVE_ALL_PHOTOS:
-      // return action.photos
-      allIds = Object.keys(action.photos);
+      allIds = Object.keys(action.photos.byId);
       return Object.assign({}, state, action.photos, {allIds})
 
     case RECEIVE_PHOTO:
-      allIds = Object.keys(action.photos);
+      allIds = Object.keys(action.photos.byId);
       return Object.assign({}, state, action.photos, {allIds})
 
     case RECEIVE_USER_PROFILE:

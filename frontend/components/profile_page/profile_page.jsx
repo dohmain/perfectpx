@@ -13,7 +13,6 @@ class ProfilePage extends React.Component {
   
   toggleFollow(e) {
     e.preventDefault();
-    debugger
     const follow = {
       follower_id: this.props.session.id,
       followed_id: this.props.match.params.userId
