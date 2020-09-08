@@ -1,40 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// const TopNav = ({ currentUser, logout }) => {
-
-//     return (
-//       <div className='top-nav-container'>
-//         <div className='top-nav-logo-link-container'>
-//           <div className='logo-link-container'>
-//             <Link to='/' className='logo-link'>PERFECTpx</Link>
-//             </div>
-//           <div className='top-nav-link-container'>
-//             <Link to='/discover' className='top-nav-link'>Discover</Link>
-//             <a href='#' className='top-nav-link'>LinkedIn</a>
-//             <a href='#' className='top-nav-link'>Github</a>
-//           </div>
-//         </div>
-//         <div className='top-nav-right'>
-//           {/* {right_nav} */}
-//           {currentUser}
-//         </div>
-//       </div>
-//     )
-
-// }
-
 
 class TopNav extends React.Component {
   constructor(props){
     super(props);
-    // this.currentUser = this.props.currentUser;
-    // this.onclick = this.onclick.bind(this);
-    // this.handleDropdown = this.handleDropdown.bind(this);
-
-    // this.forceUpdate = this.forceUpdate.bind(this);
-    // require this component to re-render whenever the store's state changes
-    // this.props.store.subscribe(this.forceUpdate);
   }
 
   onclick(event) {
@@ -83,8 +53,8 @@ class TopNav extends React.Component {
             </div>
           <div className='top-nav-link-container'>
             <Link to='/discover' className='top-nav-link'>Discover</Link>
-            <a href='#' className='top-nav-link'>LinkedIn</a>
-            <a href='#' className='top-nav-link'>Github</a>
+            <a href='https://www.linkedin.com/in/joe-doh/' className='top-nav-link'>LinkedIn</a>
+            <a href='https://github.com/dohmain' className='top-nav-link'>Github</a>
           </div>
         </div>
         <div className='top-nav-right'>
