@@ -20,7 +20,7 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, { [action.comment.id]: action.comment }, {allIds});
 
     case RECEIVE_PHOTO:
-      allIds = action.comments ? Object.keys(action.comments) : null;
+      allIds = action.comments ? Object.keys(action.comments.byId) : null;
       return Object.assign({}, state, action.comments, {allIds});
       
     default:

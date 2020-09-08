@@ -1,5 +1,5 @@
 export const fetchPhotoComments = (state, photo) => {
-  return photo.comment_ids ? photo.comment_ids.map(id => state.entities.comments[id]) : [];
+  return photo.comment_ids ? photo.comment_ids.map(id => state.entities.comments.byId[id]) : [];
 }
 
 export const fetchUserPhotos = (state, user) => {

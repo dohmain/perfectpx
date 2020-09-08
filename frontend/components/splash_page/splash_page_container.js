@@ -6,7 +6,7 @@ import { getRandomPhoto } from '../../reducers/selectors';
 import SplashPage from './splash_page';
 
 const mapStateToProps = (state) => {
-  const photo = getRandomPhoto(state.entities.photos);
+  const photo = state.entities.photos.byId ? getRandomPhoto(state.entities.photos.byId) : null;
   return {
     photo
   }

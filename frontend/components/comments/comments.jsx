@@ -9,7 +9,7 @@ class Comments extends React.Component {
     if (this.props.comments) {
       commentItems = this.props.comments.map(comment => {
         return (
-          <CommentItem key={comment.id} comment={comment} author={this.props.users[comment.user_id]}/>
+          <CommentItem key={comment.id} comment={comment} author={this.props.users.byId[comment.user_id]}/>
         )
       })
     }

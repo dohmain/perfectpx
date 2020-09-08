@@ -16,7 +16,7 @@ const usersReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.user.id]: action.user }, allIds );
 
     case RECEIVE_PHOTO:
-      allIds = Object.keys(action.users);
+      allIds = Object.keys(action.users.byId);
       return Object.assign({}, state, action.users, {allIds})
 
     case RECEIVE_ALL_PHOTOS:

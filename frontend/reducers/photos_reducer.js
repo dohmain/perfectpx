@@ -22,6 +22,7 @@ export default (state = defaultState, action) => {
 
     case RECEIVE_COMMENT:
       let newState = state;
+      debugger;
       newState[action.comment.photo_id].comment_ids.push(action.comment.id);
       return Object.assign({}, state, newState)
 
