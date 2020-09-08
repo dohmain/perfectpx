@@ -13,7 +13,7 @@ class PhotoShow extends React.Component {
 
   render() {
     const px = this.props.photo;
-    const user = this.props.user;
+    const user = this.props.users;
     const uploadTime = this.props.photo.created_at ? this.props.photo.created_at.split('T')[0] : null
     if (!px) return null;
     return (

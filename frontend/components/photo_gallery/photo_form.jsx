@@ -41,7 +41,8 @@ class PhotoForm extends React.Component {
       formData.append('photo[px]', this.state.pxFile);
     }
     this.props.postPhoto(formData).then((payload) => {
-      this.props.history.push(`/photo/${Object.keys(payload.photos)[0]}`)
+      debugger;
+      this.props.history.push(`/photo/${Object.keys(payload.photos.byId)[0]}`)
     })
   }
 
