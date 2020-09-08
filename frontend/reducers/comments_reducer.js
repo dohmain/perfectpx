@@ -16,8 +16,9 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, action.user.comments, {allIds});
 
     case RECEIVE_COMMENT:
-      allIds = [action.comment.id];
-      return Object.assign({}, state, { [action.comment.id]: action.comment }, {allIds});
+      allIds = state.allIds.push(action.comment.id);
+      let newComment = state.byId[action.comment.id] = action.comment;
+      return Object.assign({}, state, newComment, {allIds});
 
     case RECEIVE_PHOTO:
       allIds = action.comments ? Object.keys(action.comments.byId) : null;
