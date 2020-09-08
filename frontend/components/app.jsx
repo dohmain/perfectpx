@@ -19,7 +19,7 @@ const App = () => (
       <Route path='/' component={TopNavContainer} />
     </header>
     <Switch>
-      <AuthRoute exact path='/' component={SplashPageContainer} />
+      <Route exact path='/' component={SplashPageContainer} />
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
       <ProtectedRoute path='/onboarding' component={OnboardingFormContainer} />
