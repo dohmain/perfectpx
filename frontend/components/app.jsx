@@ -11,7 +11,6 @@ import MyInformationContainer from '../components/my_information/my_information_
 import PhotoGalleryContainer from '../components/photo_gallery/photo_gallery_container';
 import PhotoShowContainer from '../components/photo_gallery/photo_show_container';
 import PhotoFormContainer from '../components/photo_gallery/photo_form_container';
-import CommentsContainer from '../components/comments/comments_container';
 
 const App = () => (
   <div>
@@ -25,7 +24,6 @@ const App = () => (
       <ProtectedRoute path='/onboarding' component={OnboardingFormContainer} />
       <ProtectedRoute path='/upload' component={PhotoFormContainer} />
       <Route exact path='/discover' component={PhotoGalleryContainer} />
-      {/* <Route exact path='/comments' component={CommentsContainer} /> */}
       <Route exact path='/photo/:photoId' component={PhotoShowContainer} />
       <ProtectedRoute exact path='/users/:userId/my_information' component={MyInformationContainer} />
       <Route exact path='/users/:userId' component={ProfilePageContainer} />
