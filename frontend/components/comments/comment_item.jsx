@@ -4,7 +4,7 @@ class CommentItem extends React.Component {
   render() {
     return (
       <li>
-        <div>{this.props.comment.body}</div><div>{this.props.author.username}</div>
+        <div>{this.props.comment.body}</div><div>{this.props.author}</div>
       </li>
     )
   }

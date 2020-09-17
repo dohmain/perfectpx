@@ -4,20 +4,16 @@ export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 
 const receiveAllPhotos = photos => {
-
   return ({
     type: RECEIVE_ALL_PHOTOS,
     photos,
   })
 };
 
-const receivePhoto = payload => {
-  const { photos, users, comments} = payload;
+const receivePhoto = photo => {
   return ({
     type: RECEIVE_PHOTO,
-    photos, 
-    users, 
-    comments
+    photo
   })
 };
 

@@ -1,4 +1,4 @@
-json.photo do 
+ 
   json.extract! @photo, :id, :title, :description, :created_at
   json.pxURL url_for(@photo.px)
 
@@ -14,7 +14,7 @@ json.photo do
       end
     end
   end
-end
+
 
 
 # json.photo do

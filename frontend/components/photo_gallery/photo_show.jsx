@@ -13,8 +13,15 @@ class PhotoShow extends React.Component {
 
   render() {
     const px = this.props.photo;
-    const user = this.props.users;
-    const uploadTime = this.props.photo.created_at ? this.props.photo.created_at.split('T')[0] : null
+    let userId, userFname, userLname, uploadTime;
+    
+    if (this.props.photo.id) {
+      userId = this.props.photo.creator.id
+      userFname = this.props.photo.creator.fname
+      userLname = this.props.photo.creator.lname
+      uploadTime = this.props.photo.created_at.split('T')[0]
+    }
+    
     if (!px) return null;
     return (
       <div className='photo-show-page-container'>
@@ -26,7 +33,7 @@ class PhotoShow extends React.Component {
             <div className='photo-details-main'>
               <div className='photo-title-name'>
                 <div className='photo-details-title'>{px.title}</div>
-                <div className='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${user.id}`}>{user.fname} {user.lname}</Link></div>
+                <div className='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${userId}`}>{userFname} {userLname}</Link></div>
               </div>
               <div className='photo-details-sub'>
                 <div className='photo-details-uploaded-date'>
@@ -39,10 +46,10 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className='photo-details-right-col'>
-            <CommentsContainer comments={this.props.comments} 
-                               commentIds={this.props.photo.comment_ids}
-                               users={this.props.users}
-                               photoId={this.props.photo.id}
+            <CommentsContainer comments={this.props.photo.comments} 
+                              //  commentIds={this.props.photo.comment_ids}
+                              //  users={this.props.users}
+                              //  photoId={this.props.photo.id}
             />
           </div>
         </div>

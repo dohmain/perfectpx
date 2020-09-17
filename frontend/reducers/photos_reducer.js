@@ -9,21 +9,19 @@ export default (state = defaultState, action) => {
   let allIds;
   switch(action.type) {
     case RECEIVE_ALL_PHOTOS:
-      allIds = Object.keys(action.photos);
       return Object.assign({}, state, action.photos)
 
     case RECEIVE_PHOTO:
-      allIds = Object.keys(action.photos.byId);
-      return Object.assign({}, state, action.photos, {allIds})
+      return Object.assign({}, state, action.photo)
 
-    case RECEIVE_USER_PROFILE:
-      allIds = Object.keys(action.user.photos)
-      return Object.assign({}, state, action.user.photos, {allIds})
+    // case RECEIVE_USER_PROFILE:
+    //   allIds = Object.keys(action.user.photos)
+    //   return Object.assign({}, state, action.user.photos, {allIds})
 
-    case RECEIVE_COMMENT:
-      let newState = state;
-      newState.byId[action.comment.photo_id].comment_ids.push(action.comment.id);
-      return Object.assign({}, state, newState)
+    // case RECEIVE_COMMENT:
+    //   let newState = state;
+    //   newState.byId[action.comment.photo_id].comment_ids.push(action.comment.id);
+    //   return Object.assign({}, state, newState)
 
     default:
       return state;
