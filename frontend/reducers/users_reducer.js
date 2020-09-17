@@ -11,12 +11,12 @@ const usersReducer = (state = {}, action) => {
       return Object.assign({}, state, {[action.user.id]: action.user});
 
     case RECEIVE_USER_PROFILE:
-      allIds = {allIds: [action.user.id]}
-      return Object.assign({}, state, { [action.user.id]: action.user }, allIds );
+      debugger;
+      return Object.assign({}, { [action.user.id]: action.user });
 
-    // case RECEIVE_PHOTO:
-    //   allIds = Object.keys(action.users.byId);
-    //   return Object.assign({}, state, action.users, {allIds})
+    case RECEIVE_PHOTO:
+      debugger;
+      return Object.assign({}, state, { [action.photo.user.id]: action.photo.user });
 
     // case RECEIVE_ALL_PHOTOS:
     //   debugger;

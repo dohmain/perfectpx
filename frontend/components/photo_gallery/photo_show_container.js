@@ -3,21 +3,14 @@ import PhotoShow from './photo_show';
 import { getPhoto, getPhotos } from '../../actions/photo_actions';
 import { fetchPhotoComments } from '../../reducers/selectors';
 
-const mapStateToProps = (state, ownProps) => {
-  const photo = state.entities.photos ? state.entities.photos : {};
-  const user = state.entities.users.byId? state.entities.users.byId[photo.creator_id] : {};
-  const comments = fetchPhotoComments(state, photo);
-  const users = state.entities.users;
+const mapStateToProps = (state) => {
   return {
-    photo,
-    user,
-    comments,
-    users,
+    photo: state.entities.photos,
+    user: state.entities.users,
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  getPhotos: () => dispatch(getPhotos()),
   getPhoto: id => dispatch(getPhoto(id))
 
 })

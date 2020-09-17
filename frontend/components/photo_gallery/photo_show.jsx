@@ -8,20 +8,25 @@ class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.getPhoto(this.props.match.params.photoId)
   }
 
   render() {
-    const px = this.props.photo;
-    let userId, userFname, userLname, uploadTime;
+
+    const px = this.props.photo[this.props.match.params.photoId];
+    let userId, userFname, userLname, uploadTime, comments;
     
-    if (this.props.photo.id) {
-      userId = this.props.photo.creator.id
-      userFname = this.props.photo.creator.fname
-      userLname = this.props.photo.creator.lname
-      uploadTime = this.props.photo.created_at.split('T')[0]
+    if (this.props.photo[this.props.match.params.photoId]) {
+      let photo = this.props.photo[this.props.match.params.photoId];
+      let user = Object.values(this.props.user)[0]
+      userId = user.id;
+      userFname = user.fname;
+      userLname = user.lname;
+      uploadTime = photo.created_at.split('T')[0];
+      comments = photo.comments;
     }
-    
+    debugger
     if (!px) return null;
     return (
       <div className='photo-show-page-container'>
@@ -46,7 +51,7 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className='photo-details-right-col'>
-            <CommentsContainer comments={this.props.photo.comments} 
+            <CommentsContainer comments={comments} 
                               //  commentIds={this.props.photo.comment_ids}
                               //  users={this.props.users}
                               //  photoId={this.props.photo.id}

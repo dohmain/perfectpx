@@ -1,8 +1,8 @@
- 
+json.photo do 
   json.extract! @photo, :id, :title, :description, :created_at
   json.pxURL url_for(@photo.px)
-
-  json.creator do 
+end
+  json.user do 
     json.extract! @photo.creator, :id, :username, :fname, :lname, :photo_ids
   end
 

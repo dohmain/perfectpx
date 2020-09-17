@@ -4,31 +4,31 @@ import PhotoIndexItem from '../../components/photo_gallery/photo_index_item';
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
-    this.toggleFollow = this.toggleFollow.bind(this);
+    // this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
     this.props.getUser(this.props.match.params.userId);
   }
   
-  toggleFollow(e) {
-    e.preventDefault();
-    const follow = {
-      follower_id: this.props.session.id,
-      followed_id: this.props.match.params.userId
-    }
-    this.props.postFollow(follow)
-  }
+  // toggleFollow(e) {
+  //   e.preventDefault();
+  //   const follow = {
+  //     follower_id: this.props.session.id,
+  //     followed_id: this.props.match.params.userId
+  //   }
+  //   this.props.postFollow(follow)
+  // }
 
   render() {
-
-    const photos = this.props.photos[0] ? (this.props.photos.map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))) : (null)
+    debugger;
+    const photos = this.props.currentUser.photos ? (Object.values(this.props.currentUser.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))) : (null)
     
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
           <span className='profile-username-display'>{this.props.currentUser.username}</span>
-          <button onClick={this.toggleFollow}>button</button>
+          {/* <button onClick={this.toggleFollow}>button</button> */}
           <div className='profile-name-container'><div><h3>{this.props.currentUser.fname}</h3></div><div><h3>{this.props.currentUser.lname}</h3></div></div>
           <div className='profile-follow-container'><span className='profile-follow-count'># Followers</span><span className='profile-follow-count'># Following</span></div>
           <div className='profile-photo-gallery'>

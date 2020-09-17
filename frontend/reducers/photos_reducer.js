@@ -12,7 +12,7 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, action.photos)
 
     case RECEIVE_PHOTO:
-      return Object.assign({}, state, action.photo)
+      return Object.assign({}, {[action.photo.photo.id]: action.photo.photo})
 
     // case RECEIVE_USER_PROFILE:
     //   allIds = Object.keys(action.user.photos)
