@@ -8,8 +8,7 @@ const usersReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      allIds = {allIds: [action.user.id]}
-      return Object.assign({}, state, { [action.user.id]: action.user }, allIds );
+      return Object.assign({}, state, {[action.user.id]: action.user});
 
     case RECEIVE_USER_PROFILE:
       allIds = {allIds: [action.user.id]}
@@ -19,9 +18,10 @@ const usersReducer = (state = {}, action) => {
       allIds = Object.keys(action.users.byId);
       return Object.assign({}, state, action.users, {allIds})
 
-    case RECEIVE_ALL_PHOTOS:
-      allIds = Object.keys(action.users.byId);
-      return Object.assign({}, state, action.users, {allIds})
+    // case RECEIVE_ALL_PHOTOS:
+    //   debugger;
+    //   allIds = Object.keys(action.users.byId);
+    //   return Object.assign({}, state, action.users, {allIds})
 
     default:
       return state;

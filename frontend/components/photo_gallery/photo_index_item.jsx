@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PhotoIndexItem = ({ photo }) => {
+  debugger;
   return (
     <div className='gallery-index-photo'>
       <Link to={`/photo/${photo.id}`}>

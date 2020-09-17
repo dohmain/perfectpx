@@ -3,12 +3,11 @@ import * as PhotoAPIUtil from '../util/photo_api_util';
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 
-const receiveAllPhotos = payload => {
-  const { photos, users } = payload;
+const receiveAllPhotos = photos => {
+
   return ({
     type: RECEIVE_ALL_PHOTOS,
     photos,
-    users
   })
 };
 

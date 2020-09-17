@@ -11,7 +11,7 @@ class PhotoGallery extends React.Component {
   }
 
   render() {
-    const photo = this.props.photos ? this.props.photos.map(photo => <PhotoIndexItem key={`px.${photo.id}`} photo={photo} />) : null;
+    const photo = this.props.photos ? Object.values(this.props.photos).map(photo => <PhotoIndexItem key={`px.${photo.id}`} photo={photo} />) : null;
     return (
       <div className='photo-gallery-container'>
         {photo}
