@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state).then((payload) => {
-      this.props.history.push(`/users/${payload.user.id}`)
+      this.props.history.push(`/users/${payload.user.user.id}`)
     });
   }
   
@@ -43,7 +43,8 @@ class SessionForm extends React.Component {
     e.preventDefault()
     const demoUser = { email: 'demo@demo.com', password:'hunter2020' };
     this.props.action(demoUser).then((payload) => {
-      this.props.history.push(`/users/${payload.user.id}`)
+      debugger;
+      this.props.history.push(`/users/${payload.user.user.id}`)
     });
   }
 
