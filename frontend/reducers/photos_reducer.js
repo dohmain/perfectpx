@@ -9,7 +9,7 @@ export default (state = defaultState, action) => {
 
   switch(action.type) {
     case RECEIVE_ALL_PHOTOS:
-      return Object.assign({}, state, action.photos)
+      return Object.assign({}, state, action.photos.photos)
 
     case RECEIVE_PHOTO:
       return Object.assign({}, {[action.photo.photo.id]: action.photo.photo})

@@ -15,6 +15,8 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_PHOTO:
       return Object.assign({}, { [action.photo.user.id]: action.photo.user });
 
+    case RECEIVE_ALL_PHOTOS: 
+      return Object.assign({}, state, action.photos.users );
     default:
       return state;
   }

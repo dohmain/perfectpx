@@ -8,7 +8,7 @@ class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getPhoto(this.props.match.params.photoId)
+    this.props.getPhoto(this.props.match.params.photoId);
   }
 
   render() {
@@ -17,6 +17,7 @@ class PhotoShow extends React.Component {
     let userId, userFname, userLname, uploadTime, comments;
     
     if (this.props.photo[this.props.match.params.photoId]) {
+      debugger;
       let photo = this.props.photo[this.props.match.params.photoId];
       let user = Object.values(this.props.user)[0]
       userId = user.id;
@@ -49,11 +50,7 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className='photo-details-right-col'>
-            <CommentsContainer comments={comments} 
-                              //  commentIds={this.props.photo.comment_ids}
-                              //  users={this.props.users}
-                              //  photoId={this.props.photo.id}
-            />
+            <CommentsContainer comments={comments} />
           </div>
         </div>
       </div>
