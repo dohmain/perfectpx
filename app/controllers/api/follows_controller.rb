@@ -7,9 +7,9 @@ class Api::FollowsController < ApplicationController
     render :index
   end
 
-  def show 
-    @follow = Follow.find(params[:id])
-  end 
+  # def show 
+  #   @follow = Follow.find(params[:id])
+  # end 
 
   def create 
     @follow = Follow.new(follow_params)

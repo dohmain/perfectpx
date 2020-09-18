@@ -9,6 +9,9 @@
 #  updated_at  :datetime         not null
 #
 class Follow < ApplicationRecord
+  validates :followed_id, uniqueness: { scope: :follower_id,
+    message: "User is already being followed"}
+
   belongs_to :follower,
   foreign_key: :follower_id,
   class_name: :User
