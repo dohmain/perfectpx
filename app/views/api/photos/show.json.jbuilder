@@ -3,7 +3,7 @@ json.photo do
   json.pxURL url_for(@photo.px)
 end
   json.user do 
-    json.extract! @photo.creator, :id, :username, :fname, :lname, :photo_ids
+    json.extract! @photo.creator, :id, :username, :fname, :lname, :photo_ids, :following_ids, :follower_ids
   end
 
   json.comments do 

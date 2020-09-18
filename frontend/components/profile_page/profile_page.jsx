@@ -4,11 +4,36 @@ import PhotoIndexItem from '../../components/photo_gallery/photo_index_item';
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      id: Object.values(this.props.user)[0].id
+    }
     // this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
     this.props.getUser(this.props.match.params.userId);
+  }
+  
+  static getDerivedStateFromProps(nextProps, prevState) {
+    // debugger;
+    // return null;
+    if (nextProps.match.params.userId != prevState.id) {
+      debugger;
+      return {
+        id: nextProps.match.params.userId
+      }
+    }
+    // debugger;
+    return null;
+    // if (nextProps.match.params.userId !== prevState)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.userId != this.props.match.params.userId) {
+      this.props.getUser(this.props.match.params.userId);
+    }
+    // debugger;
+    // return null;
   }
   
   // toggleFollow(e) {
@@ -22,14 +47,17 @@ class ProfilePage extends React.Component {
 
   render() {
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
-    debugger;
+    const user = Object.values(this.props.user)[0];
+    const followingNumber = user.following_ids.length;
+    const followerNumber = user.follower_ids.length;
+    console.log(this.state);
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
-          <span className='profile-username-display'>{Object.keys(this.props.user)[0].username}</span>
+          <span className='profile-username-display'>{user.username}</span>
           {/* <button onClick={this.toggleFollow}>button</button> */}
-          <div className='profile-name-container'><div><h3>{this.props.user.fname}</h3></div><div><h3>{this.props.user.lname}</h3></div></div>
-          <div className='profile-follow-container'><span className='profile-follow-count'># Followers</span><span className='profile-follow-count'># Following</span></div>
+          <div className='profile-name-container'><div><h3>{user.fname}</h3></div><div><h3>{user.lname}</h3></div></div>
+          <div className='profile-follow-container'><span className='profile-follow-count'>{followerNumber} Followers</span><span className='profile-follow-count'>{followingNumber} Following</span></div>
           <div className='profile-photo-gallery'>
             <span className='profile-photo-gallery-heading'>PHOTOS</span>
           </div>
