@@ -7,12 +7,9 @@ import { postFollow } from '../../actions/follow_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
-  const user = state.entities.users[ownProps.match.params.userId] || {};
-  const photos = user.photos;
-  debugger;
   return ({
-    currentUser: user,
-    // photos,
+    user: state.entities.users,
+    photos: state.entities.photos,
     session: state.session
   })
 };

@@ -21,15 +21,14 @@ class ProfilePage extends React.Component {
   // }
 
   render() {
-    debugger;
-    const photos = this.props.currentUser.photos ? (Object.values(this.props.currentUser.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))) : (null)
-    
+    const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
+
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
-          <span className='profile-username-display'>{this.props.currentUser.username}</span>
+          <span className='profile-username-display'>{this.props.user.username}</span>
           {/* <button onClick={this.toggleFollow}>button</button> */}
-          <div className='profile-name-container'><div><h3>{this.props.currentUser.fname}</h3></div><div><h3>{this.props.currentUser.lname}</h3></div></div>
+          <div className='profile-name-container'><div><h3>{this.props.user.fname}</h3></div><div><h3>{this.props.user.lname}</h3></div></div>
           <div className='profile-follow-container'><span className='profile-follow-count'># Followers</span><span className='profile-follow-count'># Following</span></div>
           <div className='profile-photo-gallery'>
             <span className='profile-photo-gallery-heading'>PHOTOS</span>

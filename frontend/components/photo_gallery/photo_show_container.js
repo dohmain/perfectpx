@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
   return {
     photo: state.entities.photos,
     user: state.entities.users,
+    comments: state.entities.comments
   }
 }
 

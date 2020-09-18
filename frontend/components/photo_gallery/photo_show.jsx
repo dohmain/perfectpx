@@ -8,7 +8,6 @@ class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.getPhoto(this.props.match.params.photoId)
   }
 
@@ -24,9 +23,8 @@ class PhotoShow extends React.Component {
       userFname = user.fname;
       userLname = user.lname;
       uploadTime = photo.created_at.split('T')[0];
-      comments = photo.comments;
+      comments = this.props.comments;
     }
-    debugger
     if (!px) return null;
     return (
       <div className='photo-show-page-container'>

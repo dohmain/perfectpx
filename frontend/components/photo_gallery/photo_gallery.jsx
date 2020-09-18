@@ -11,13 +11,10 @@ class PhotoGallery extends React.Component {
   }
 
   render() {
-    debugger;
-    const photo = this.props.photos ? Object.values(this.props.photos).map(photo => {
-      return <PhotoIndexItem key={`px.${photo.id}`} photo={photo} />
-    }) : null;
+    const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
     return (
       <div className='photo-gallery-container'>
-        {photo}
+        {photos}
       </div>
     )
   }
