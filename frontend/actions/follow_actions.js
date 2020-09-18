@@ -11,7 +11,6 @@ const receiveFollow = follow => {
 }
 
 const unFollowUser = (follow) => {
-  debugger;
   return {
     type: UNFOLLOW_USER,
     follow

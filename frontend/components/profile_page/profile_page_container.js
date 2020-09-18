@@ -1,12 +1,10 @@
 import { connect } from 'react-redux';
 import ProfilePage from './profile_page';
 import { fetchUser } from '../../actions/user_actions';
-import { fetchUserPhotos } from '../../reducers/selectors';
 import { getPhotos } from '../../actions/photo_actions';
 import { postFollow, unFollow } from '../../actions/follow_actions';
 
-const mapStateToProps = (state, ownProps) => {
-  debugger;
+const mapStateToProps = (state) => {
   return ({
     user: state.entities.users,
     photos: state.entities.photos,

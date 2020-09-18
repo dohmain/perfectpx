@@ -17,7 +17,6 @@ export const postFollow = follow => {
 }
 
 export const unFollow = follow => {
-  debugger;
   return (
     $.ajax({
       url: `/api/users/${follow.follower_id}/follows/${follow.id}`,
