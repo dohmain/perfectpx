@@ -21,9 +21,18 @@ json.comments do
 end
 
 json.follows do 
-  @user.followings.each do |following|
-    json.set! following.id do 
-      json.extract! following, :id, :follower_id, :followed_id
+  json.followings do 
+    @user.followings.each do |following|
+      json.set! following.id do 
+        json.extract! following, :id, :follower_id, :followed_id
+      end
+    end
+  end
+  json.followers do 
+    @user.followers.each do |follower| 
+      json.set! follower.id do 
+        json.extract! follower, :id, :follower_id, :followed_id
+      end
     end
   end
 end
