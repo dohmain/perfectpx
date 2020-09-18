@@ -18,9 +18,7 @@ export default (state = defaultState, action) => {
       return Object.assign({}, action.user.photos,)
 
     // case RECEIVE_COMMENT:
-    //   let newState = state;
-    //   newState.byId[action.comment.photo_id].comment_ids.push(action.comment.id);
-    //   return Object.assign({}, state, newState)
+      // i dont think i need this
 
     default:
       return state;
