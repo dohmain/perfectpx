@@ -4,12 +4,6 @@ json.follows do
       json.extract! @follow, :id, :follower_id, :followed_id
     end
   end
-  # json.followers do 
-  #   debugger
-  #   @follow.follower.each do |follower|
-  #     json.extract! @follow, :id, :follower_id, :followed_id
-  #   end
-  # end
 end
 
 json.user do 

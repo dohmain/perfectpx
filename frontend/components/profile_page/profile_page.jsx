@@ -8,6 +8,7 @@ class ProfilePage extends React.Component {
       id: Object.values(this.props.user)[0].id
     }
     this.toggleFollow = this.toggleFollow.bind(this);
+    this.undoFollow = this.undoFollow.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +39,13 @@ class ProfilePage extends React.Component {
     this.props.postFollow(follow)
   }
 
+  undoFollow(e) {
+    e.preventDefault();
+    debugger;
+    const follow = Object.values(this.props.follows.followers).filter(follower => follower.follower_id === this.props.session.id)[0];
+    this.props.unFollow(follow)
+  }
+
   render() {
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
     const user = Object.values(this.props.user)[0];
@@ -47,7 +55,8 @@ class ProfilePage extends React.Component {
       <div className='main-content-box'>
         <div className='profile-main-container'>
           <span className='profile-username-display'>{user.username}</span>
-          <button onClick={this.toggleFollow}>button</button>
+          <button onClick={this.toggleFollow}>follow</button>
+          <button onClick={this.undoFollow}>unfollow</button> 
           <div className='profile-name-container'><div><h3>{user.fname}</h3></div><div><h3>{user.lname}</h3></div></div>
           <div className='profile-follow-container'><span className='profile-follow-count'>{followerNumber} Followers</span><span className='profile-follow-count'>{followingNumber} Following</span></div>
           <div className='profile-photo-gallery'>
