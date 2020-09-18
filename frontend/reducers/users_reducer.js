@@ -10,7 +10,6 @@ const usersReducer = (state = {}, action) => {
       return Object.assign({}, {[action.user.id]: action.user});
 
     case RECEIVE_USER_PROFILE:
-      debugger;
       return Object.assign({}, { [action.user.user.id]: action.user.user });
 
     case RECEIVE_PHOTO:

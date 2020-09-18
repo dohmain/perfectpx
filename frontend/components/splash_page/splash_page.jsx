@@ -7,7 +7,6 @@ class SplashPage extends React.Component {
   }
   render() {
     const splashURL = this.props.photo ? this.props.photo.pxURL : null;
-    debugger;
     return (
       <div className='main-content-box splash'>
         <img src={splashURL} className='splash-image'/>

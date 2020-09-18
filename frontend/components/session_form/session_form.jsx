@@ -43,7 +43,6 @@ class SessionForm extends React.Component {
     e.preventDefault()
     const demoUser = { email: 'demo@demo.com', password:'hunter2020' };
     this.props.action(demoUser).then((payload) => {
-      debugger;
       this.props.history.push(`/users/${payload.user.user.id}`)
     });
   }
