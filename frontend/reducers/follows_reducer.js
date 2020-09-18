@@ -6,7 +6,7 @@ const followsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_FOLLOW:
       debugger;
-      return Object.assign({}, state, {[action.follow.follow.id]: action.follow.follow});
+      return Object.assign({}, state, action.follow.follows);
   
     case RECEIVE_USER_PROFILE:
       return Object.assign({}, action.user.follows);
