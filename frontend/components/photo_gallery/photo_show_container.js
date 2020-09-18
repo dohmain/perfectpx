@@ -4,7 +4,6 @@ import { getPhoto, getPhotos } from '../../actions/photo_actions';
 import { fetchPhotoComments } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
-  debugger;
   return {
     photo: state.entities.photos,
     user: state.entities.users,

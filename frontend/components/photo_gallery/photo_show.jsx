@@ -17,7 +17,6 @@ class PhotoShow extends React.Component {
     let userId, userFname, userLname, uploadTime, comments;
     
     if (this.props.photo[this.props.match.params.photoId]) {
-      debugger;
       let photo = this.props.photo[this.props.match.params.photoId];
       let user = Object.values(this.props.user)[0]
       userId = user.id;

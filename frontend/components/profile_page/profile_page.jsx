@@ -14,14 +14,14 @@ class ProfilePage extends React.Component {
     this.props.getUser(this.props.match.params.userId);
   }
   
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.match.params.userId != prevState.id) {
-      return {
-        id: nextProps.match.params.userId
-      }
-    }
-    return null;
-  }
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   if (nextProps.match.params.userId != prevState.id) {
+  //     return {
+  //       id: nextProps.match.params.userId
+  //     }
+  //   }
+  //   return null;
+  // }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.userId != this.props.match.params.userId) {
@@ -43,7 +43,6 @@ class ProfilePage extends React.Component {
     const user = Object.values(this.props.user)[0];
     const followingNumber = user.following_ids.length;
     const followerNumber = user.follower_ids.length;
-    console.log(this.state);
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>

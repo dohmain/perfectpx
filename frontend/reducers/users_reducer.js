@@ -1,6 +1,7 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_USER_PROFILE } from '../actions/user_actions';
 import { RECEIVE_PHOTO, RECEIVE_ALL_PHOTOS } from '../actions/photo_actions';
+import { RECEIVE_FOLLOW } from '../actions/follow_actions';
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -17,6 +18,10 @@ const usersReducer = (state = {}, action) => {
 
     case RECEIVE_ALL_PHOTOS: 
       return Object.assign({}, state, action.photos.users );
+
+    case RECEIVE_FOLLOW:
+      return Object.assign({}, state, {[action.follow.user.id]: action.follow.user})
+
     default:
       return state;
   }
