@@ -5,7 +5,7 @@ class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      follow: false
+      follow: false, 
     }
     this.doFollow = this.doFollow.bind(this);
     this.undoFollow = this.undoFollow.bind(this);
@@ -18,9 +18,23 @@ class ProfilePage extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     debugger;
-    // return null;
+
+    let follow = false, user = Object.values(nextProps.user)[0];;
+
+    if (nextProps.follows.followers) {
+      follow = Object.values(nextProps.follows.followers).filter(follow => follow.follower_id === nextProps.session.id)[0]
+      debugger;
+      if (follow) {
+        return {
+          follow: true,
+          user
+        };
+      }
+    }
+
     return {
-      user: nextProps.user[nextProps.match.params.userId]
+      follow: false,
+      user
     }
   }
 
@@ -47,8 +61,7 @@ class ProfilePage extends React.Component {
   undoFollow(e) {
     e.preventDefault();
     const follow = Object.values(this.props.follows.followers).filter(follower => follower.follower_id === this.props.session.id)[0];
-    this.props.unFollow(follow)
-    // setState after unFollow
+    this.props.unFollow(follow);
   }
 
   // toggleFollow(e) {
@@ -64,7 +77,8 @@ class ProfilePage extends React.Component {
 
   render() {
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
-    // const user = this.props.user[this.props.match.params.userId]
+    debugger;
+    const user = this.state.user;
     console.log(this.user)
     // const followingNumber = this.user.following_ids.length;
     // const followerNumber = this.user.follower_ids.length;

@@ -9,6 +9,11 @@ export default (state = {}, action) => {
       
     case LOGOUT_CURRENT_USER:
       return {};
+
+    case UNFOLLOW_USER: 
+      return state;
+      // delete the follow referece from old state and return new state
+
       
     default:
       return state;

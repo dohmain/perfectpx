@@ -1,4 +1,4 @@
-import { RECEIVE_FOLLOW } from '../actions/follow_actions';
+import { RECEIVE_FOLLOW, UNFOLLOW_USER } from '../actions/follow_actions';
 import { RECEIVE_USER_PROFILE } from '../actions/user_actions';
 
 const followsReducer = (state = {}, action) => {
@@ -10,6 +10,9 @@ const followsReducer = (state = {}, action) => {
     case RECEIVE_USER_PROFILE:
       return Object.assign({}, action.user.follows);
 
+    case UNFOLLOW_USER: 
+      return state;
+      // delete the follow referece from old state and return new state
     default:
       return state;
   }
