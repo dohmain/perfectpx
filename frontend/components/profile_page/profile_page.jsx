@@ -82,7 +82,7 @@ class ProfilePage extends React.Component {
     const user = this.state.user;
     const followingNumber = user.following_ids.length;
     const followerNumber = user.follower_ids.length;
-    // const followStatus = this.state.followed ? "Unfollow (toggle)" : "Follow (toggle)";
+    const followButtonStatus = this.state.followed ? "Unfollow (toggle)" : "Follow (toggle)";
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
@@ -91,7 +91,7 @@ class ProfilePage extends React.Component {
           <button onClick={this.putConsole}>console</button>
           <button onClick={this.doFollow}>follow</button>
           <button onClick={this.undoFollow}>unfollow</button> 
-          <button>{followStatus}</button>
+          <button>{followButtonStatus}</button>
           <div className='profile-name-container'><div><h3>{user.fname}</h3></div><div><h3>{user.lname}</h3></div></div>
           <div className='profile-follow-container'><span className='profile-follow-count'>{followerNumber} Followers</span><span className='profile-follow-count'>{followingNumber} Following</span></div>
           <div className='profile-photo-gallery'>
