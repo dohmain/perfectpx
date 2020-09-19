@@ -78,21 +78,22 @@ class ProfilePage extends React.Component {
   render() {
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
     debugger;
+    const followStatus = this.state.follow ? "true" : "false"
     const user = this.state.user;
-    console.log(this.user)
-    // const followingNumber = this.user.following_ids.length;
-    // const followerNumber = this.user.follower_ids.length;
+    const followingNumber = user.following_ids.length;
+    const followerNumber = user.follower_ids.length;
     // const followStatus = this.state.followed ? "Unfollow (toggle)" : "Follow (toggle)";
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
-          {/* <span className='profile-username-display'>{user.username}</span> */}
+          <span className='profile-username-display'>{user.username}</span>
+          Following: {followStatus}
           <button onClick={this.putConsole}>console</button>
           <button onClick={this.doFollow}>follow</button>
           <button onClick={this.undoFollow}>unfollow</button> 
-          {/* <button>{followStatus}</button> */}
-          {/* <div className='profile-name-container'><div><h3>{user.fname}</h3></div><div><h3>{user.lname}</h3></div></div> */}
-          {/* <div className='profile-follow-container'><span className='profile-follow-count'>{followerNumber} Followers</span><span className='profile-follow-count'>{followingNumber} Following</span></div> */}
+          <button>{followStatus}</button>
+          <div className='profile-name-container'><div><h3>{user.fname}</h3></div><div><h3>{user.lname}</h3></div></div>
+          <div className='profile-follow-container'><span className='profile-follow-count'>{followerNumber} Followers</span><span className='profile-follow-count'>{followingNumber} Following</span></div>
           <div className='profile-photo-gallery'>
             <span className='profile-photo-gallery-heading'>PHOTOS</span>
           </div>
