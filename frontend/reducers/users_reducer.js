@@ -24,6 +24,7 @@ const usersReducer = (state = {}, action) => {
       return Object.assign({}, state, {[action.follow.user.id]: action.follow.user})
 
     case UNFOLLOW_USER: 
+      // make sure this is the right user!
       return Object.assign({}, state, {[action.follow.user.id]: action.follow.user})
 
     default:
