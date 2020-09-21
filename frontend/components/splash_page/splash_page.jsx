@@ -50,9 +50,9 @@ class SplashPage extends React.Component {
         </div>
         <div className="join-bottom-container">
           <div className="join-bottom">
-            <h1>Join our photography community today</h1>
+            <h1 id="join-h1">Join our photography community today</h1>
             <p id="join-bottom-p">We want fresh, creative talent like you. Join our global network of like-minded creators to be inspired by incredible photos daily, and get rewarded for your talents.</p>
-            <Link to='/signup' className='splash-signup-button'>Sign Up</Link>
+            <div id="signup-button-container"><Link to='/signup' className='splash-signup-button'>Sign Up</Link></div>          
           </div>
         </div>
       </div>
