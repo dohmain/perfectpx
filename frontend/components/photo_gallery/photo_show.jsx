@@ -14,11 +14,11 @@ class PhotoShow extends React.Component {
   render() {
 
     const px = this.props.photo[this.props.match.params.photoId];
-    let userId, userFname, userLname, uploadTime, comments;
+    let userId, userFname, userLname, uploadTime, comments, photo, user;
     
     if (this.props.photo[this.props.match.params.photoId]) {
-      let photo = this.props.photo[this.props.match.params.photoId];
-      let user = Object.values(this.props.user)[0]
+      photo = this.props.photo[this.props.match.params.photoId];
+      user = Object.values(this.props.user)[0]
       userId = user.id;
       userFname = user.fname;
       userLname = user.lname;
@@ -49,7 +49,7 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className='photo-details-right-col'>
-            <CommentsContainer comments={comments} />
+            <CommentsContainer comments={comments} photo={photo}/>
           </div>
         </div>
       </div>

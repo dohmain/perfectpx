@@ -13,11 +13,10 @@ class Comments extends React.Component {
         )
       })
     }
-
-    let commentForm = this.props.photoId ? (
+    let commentForm = this.props.photo.id ? (
       <CommentForm 
         currentUserId={this.props.currentUserId}
-        photoId={this.props.photoId}
+        photoId={this.props.photo.id}
         postComment={this.props.postComment}
       />
     ) : (

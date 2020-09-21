@@ -8,7 +8,6 @@ class ProfilePage extends React.Component {
       follow: false, 
     }
     this.toggleFollow = this.toggleFollow.bind(this);
-    this.putConsole = this.putConsole.bind(this);
   }
 
   componentDidMount() {
@@ -20,7 +19,6 @@ class ProfilePage extends React.Component {
     if (nextProps.follows.followers) {
       follow = Object.values(nextProps.follows.followers).map(follow => follow.follower_id).includes(nextProps.session.id); 
     }
-
     return { follow }
   }
 
@@ -38,18 +36,9 @@ class ProfilePage extends React.Component {
     }
   }
 
-  putConsole(e) {
-    e.preventDefault();
-    console.log(this.props);
-    console.log("state", this.state);
-    console.log(this.props.user);
-  }
-
   render() {
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
-    const followStatus = this.state.follow ? "true" : "false"
     const user = this.props.user[this.props.match.params.userId];
-    debugger;
     let userName, fName, lName, followingNumber, followerNumber;
     if (user) {
       followerNumber = user.follower_ids.length;
@@ -63,7 +52,6 @@ class ProfilePage extends React.Component {
       <div className='main-content-box'>
         <div className='profile-main-container'>
           <span className='profile-username-display'>{userName}</span>
-          Following: {followStatus}
           <button onClick={this.putConsole}>console</button>
           <button onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</button>
           <div className='profile-name-container'><div><h3>{fName}</h3></div><div><h3>{lName}</h3></div></div>
