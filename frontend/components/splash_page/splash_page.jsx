@@ -2,22 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class SplashPage extends React.Component {
-  // constructor(props){
-  //   super(props);
-  // }
 
   componentDidMount() {
     this.props.getPhotos().then(() => {
 
       const splashURL = this.props.photo ? this.props.photo.pxURL : null;
-      // document.getElementById('a').style.backgroundImage="url(images/img.jpg)"
-      debugger
       document.getElementById("splash-image").style.backgroundImage = `url(${splashURL})`;
     })
   }
 
   render() {
-    debugger;
     return (
       <div>
         <div className='main-content-box splash' id='splash-image'>
