@@ -7,8 +7,7 @@ class ProfilePage extends React.Component {
     this.state = {
       follow: false, 
     }
-    this.doFollow = this.doFollow.bind(this);
-    this.undoFollow = this.undoFollow.bind(this);
+    this.toggleFollow = this.toggleFollow.bind(this);
     this.putConsole = this.putConsole.bind(this);
   }
 
@@ -17,54 +16,27 @@ class ProfilePage extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-
-    let follow = false, user = Object.values(nextProps.user)[0];;
-
+    let follow = false;
     if (nextProps.follows.followers) {
-      follow = Object.values(nextProps.follows.followers).filter(follow => follow.follower_id === nextProps.session.id)[0]
-      if (follow) {
-        return {
-          follow: true,
-          user
-        };
+      follow = Object.values(nextProps.follows.followers).map(follow => follow.follower_id).includes(nextProps.session.id); 
+    }
+
+    return { follow }
+  }
+
+  toggleFollow(action) {
+    event.preventDefault();
+    if (action === "Unfollow") {
+      const follow = Object.values(this.props.follows.followers).filter(follower => follower.follower_id === this.props.session.id)[0];
+      this.props.unFollow(follow);
+    } else if (action === "Follow") {
+      const follow = {
+        follower_id: this.props.session.id,
+        followed_id: this.props.match.params.userId
       }
-    }
-
-    return {
-      follow: false,
-      user
+      this.props.postFollow(follow)
     }
   }
-
-  // componentDidUpdate(prevProps) {
-  //   debugger;
-  //     if (prevProps.match.user[this.props.match.params.userId] != this.props.user[this.props.match.params.userId]) {
-  //       this.props.getUser(this.props.match.params.userId);
-  //     }
-  //   // if (prevProps.follows.followers != this.props.followers) {
-  //   //   this.setState({followed: true})
-  //   // }
-  // }
-  
-  doFollow(e) {
-    e.preventDefault();
-    const follow = {
-      follower_id: this.props.session.id,
-      followed_id: this.props.match.params.userId
-    }
-    this.props.postFollow(follow)
-    // setState after posting follow
-  }
-
-  undoFollow(e) {
-    e.preventDefault();
-    const follow = Object.values(this.props.follows.followers).filter(follower => follower.follower_id === this.props.session.id)[0];
-    this.props.unFollow(follow);
-  }
-
-  // toggleFollow(e) {
-
-  // }
 
   putConsole(e) {
     e.preventDefault();
@@ -76,20 +48,25 @@ class ProfilePage extends React.Component {
   render() {
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
     const followStatus = this.state.follow ? "true" : "false"
-    const user = this.state.user;
-    const followingNumber = user.following_ids.length;
-    const followerNumber = user.follower_ids.length;
-    const followButtonStatus = this.state.followed ? "Unfollow (toggle)" : "Follow (toggle)";
+    const user = this.props.user[this.props.match.params.userId];
+    debugger;
+    let userName, fName, lName, followingNumber, followerNumber;
+    if (user) {
+      followerNumber = user.follower_ids.length;
+      followingNumber = user.following_ids.length;
+      userName = user.username;
+      fName = user.fname;
+      lName = user.lname
+    }
+    const followButtonStatus = this.state.follow ? "Unfollow" : "Follow";
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
-          <span className='profile-username-display'>{user.username}</span>
+          <span className='profile-username-display'>{userName}</span>
           Following: {followStatus}
           <button onClick={this.putConsole}>console</button>
-          <button onClick={this.doFollow}>follow</button>
-          <button onClick={this.undoFollow}>unfollow</button> 
-          <button>{followButtonStatus}</button>
-          <div className='profile-name-container'><div><h3>{user.fname}</h3></div><div><h3>{user.lname}</h3></div></div>
+          <button onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</button>
+          <div className='profile-name-container'><div><h3>{fName}</h3></div><div><h3>{lName}</h3></div></div>
           <div className='profile-follow-container'><span className='profile-follow-count'>{followerNumber} Followers</span><span className='profile-follow-count'>{followingNumber} Following</span></div>
           <div className='profile-photo-gallery'>
             <span className='profile-photo-gallery-heading'>PHOTOS</span>

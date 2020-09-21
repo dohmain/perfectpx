@@ -5,14 +5,18 @@ const followsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_FOLLOW:
-      return Object.assign({}, state, action.follow.follows);
+      let followId = Object.keys(action.follow.follows)[0]
+      let newFollower = Object.assign({}, state, { [followId]: action.follow.follows});
+      let newFollowers = {followers: Object.assign({}, state.followers, newFollower.followers[followId])};
+      return Object.assign({}, state, newFollowers);
   
     case RECEIVE_USER_PROFILE:
       return Object.assign({}, action.user.follows);
 
     case UNFOLLOW_USER: 
-      return state;
-      // delete the follow referece from old state and return new state
+      let newState = state;
+      delete newState.followers[Object.keys(action.follow.follows.followers)];
+      return Object.assign({}, newState);
     default:
       return state;
   }

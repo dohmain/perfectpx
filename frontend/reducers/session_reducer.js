@@ -14,11 +14,9 @@ export default (state = {}, action) => {
 
     case RECEIVE_FOLLOW:
       return Object.assign({}, state, action.follow.session);
-      // update with reference to new follow
 
     case UNFOLLOW_USER: 
-      return state;
-      // delete the follow referece from old state and return new state
+      return Object.assign({}, state, action.follow.session);
 
     case RECEIVE_PHOTO: 
       return state;
