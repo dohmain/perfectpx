@@ -10,4 +10,6 @@ json.user do
   json.extract! @follow.followed, :id, :username, :fname, :lname, :photo_ids, :following_ids, :follower_ids
 end
 
-# need session user to update it's followings?? 
+json.session do 
+  json.extract! @follow.follower, :id, :username, :fname, :lname, :photo_ids, :following_ids, :follower_ids
+end

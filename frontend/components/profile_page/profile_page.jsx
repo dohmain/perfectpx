@@ -17,13 +17,11 @@ class ProfilePage extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    debugger;
 
     let follow = false, user = Object.values(nextProps.user)[0];;
 
     if (nextProps.follows.followers) {
       follow = Object.values(nextProps.follows.followers).filter(follow => follow.follower_id === nextProps.session.id)[0]
-      debugger;
       if (follow) {
         return {
           follow: true,
@@ -77,7 +75,6 @@ class ProfilePage extends React.Component {
 
   render() {
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
-    debugger;
     const followStatus = this.state.follow ? "true" : "false"
     const user = this.state.user;
     const followingNumber = user.following_ids.length;

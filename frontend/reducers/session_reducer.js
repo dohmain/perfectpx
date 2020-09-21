@@ -13,7 +13,7 @@ export default (state = {}, action) => {
       return {};
 
     case RECEIVE_FOLLOW:
-      return state;
+      return Object.assign({}, state, action.follow.session);
       // update with reference to new follow
 
     case UNFOLLOW_USER: 
