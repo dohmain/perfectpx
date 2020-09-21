@@ -1,0 +1,78 @@
+#splash-image {
+  width: 100%;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.splash-image-content {
+  position: relative;
+  width: 500px;
+  left: 200px;
+  top: 200px;
+  color: white;
+  text-shadow: 2px 2px 3px black
+}
+
+.splash-signup-button {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  text-decoration: none;
+  padding: 0px 15px;
+  color: black;
+  border: 2px solid white;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+  background: white;
+  text-shadow: 0 0 black;
+  width: 100px;
+  text-align: center;
+}
+
+.splash-signup-button:hover {
+  background:#d7d8d8;
+  border: 2px solid #d7d8d8;
+}
+.splash-different {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+.splash-different-heading {
+  margin: 0 auto;
+}
+
+.different-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.different-item {
+  width: 25%;
+  padding: 0 25px;
+}
+
+.join-bottom-container {
+  background-color: #45457c;
+}
+
+.join-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 60%;
+  padding: 0 100px 20px 100px;
+}
+
+#join-bottom-p {
+  text-align: center;
+}

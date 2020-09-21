@@ -11,6 +11,7 @@ import MyInformationContainer from '../components/my_information/my_information_
 import PhotoGalleryContainer from '../components/photo_gallery/photo_gallery_container';
 import PhotoShowContainer from '../components/photo_gallery/photo_show_container';
 import PhotoFormContainer from '../components/photo_gallery/photo_form_container';
+import Footer from '../components/footer/footer';
 
 const App = () => (
   <div>
@@ -29,6 +30,7 @@ const App = () => (
       <Route exact path='/users/:userId' component={ProfilePageContainer} />
     </Switch>
     <footer className='page-footer'>
+      <Route exact path='/' component={Footer} />
     </footer>
   </div>
 ) 
