@@ -4,8 +4,9 @@ import Comments from './comments';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger;
   return ({
-    currentUserId: state.session.id,
+    currentUserId: state.session.id ? state.session.id : null,
     errors: state.entities.errors
   })
 }
