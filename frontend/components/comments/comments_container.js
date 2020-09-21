@@ -4,7 +4,7 @@ import Comments from './comments';
 
 const mapStateToProps = (state) => {
   return {
-    currentUserId: state.session.id ? state.session.id : null,
+    currentUserId: state.session ? state.session.id : null,
     errors: state.entities.errors
   }
 }

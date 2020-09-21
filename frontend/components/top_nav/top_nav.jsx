@@ -30,8 +30,8 @@ class TopNav extends React.Component {
         <div className='header-user-dropdown'>
           <img src={window.userHeaderIconURL} onClick={() => this.handleDropdown()} className='header-user-dropbtn header-user-icon' />
           <div id='userDropdown' className='header-user-dropdown-content'>
-            <Link to={`/users/${this.props.currentUser}`} className='dropdown-link'>Profile</Link>
-            <Link to={`/users/${this.props.currentUser}/my_information`} className='dropdown-link'>Settings</Link>
+            <Link to={`/users/${this.props.currentUser.id}`} className='dropdown-link'>Profile</Link>
+            <Link to={`/users/${this.props.currentUser.id}/my_information`} className='dropdown-link'>Settings</Link>
             <br/>
             <a className='dropdown-link' onClick={this.props.logout}>Log out</a>
           </div>

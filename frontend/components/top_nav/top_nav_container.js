@@ -4,7 +4,7 @@ import TopNav from './top_nav';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.id
+    currentUser: state.session
   }
 };
 

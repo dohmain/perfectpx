@@ -16,7 +16,7 @@ class ProfilePage extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     let follow = false;
-    if (nextProps.follows.followers) {
+    if (nextProps.follows.followers && nextProps.session) {
       follow = Object.values(nextProps.follows.followers).map(follow => follow.follower_id).includes(nextProps.session.id); 
     }
     return { follow }
@@ -48,12 +48,12 @@ class ProfilePage extends React.Component {
       lName = user.lname
     }
     const followButtonStatus = this.state.follow ? "Unfollow" : "Follow";
+    const followButton = this.props.session ? <button onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</button> : <></>;
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
           <span className='profile-username-display'>{userName}</span>
-          <button onClick={this.putConsole}>console</button>
-          <button onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</button>
+          {followButton}
           <div className='profile-name-container'><div><h3>{fName}</h3></div><div><h3>{lName}</h3></div></div>
           <div className='profile-follow-container'><span className='profile-follow-count'>{followerNumber} Followers</span><span className='profile-follow-count'>{followingNumber} Following</span></div>
           <div className='profile-photo-gallery'>
