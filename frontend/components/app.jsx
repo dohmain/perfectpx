@@ -30,7 +30,7 @@ const App = () => (
       <Route exact path='/users/:userId' component={ProfilePageContainer} />
     </Switch>
     <footer className='page-footer'>
-      <Route exact path='/' component={Footer} />
+      <Route path='/' component={Footer} />
     </footer>
   </div>
 ) 
