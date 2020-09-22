@@ -37,6 +37,7 @@ class ProfilePage extends React.Component {
   }
 
   render() {
+    debugger;
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
     const user = this.props.user[this.props.match.params.userId];
     let userName, fName, lName, followingNumber, followerNumber;
@@ -48,12 +49,15 @@ class ProfilePage extends React.Component {
       lName = user.lname
     }
     const followButtonStatus = this.state.follow ? "Unfollow" : "Follow";
-    const followButton = this.props.session ? <button onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</button> : <></>;
+    
+    let followButton = document.getElementById("follow-button");
+    if (followButton) followButton.style.color = this.state.follow ? "green" : "red";
+
     return (
       <div className='main-content-box'>
         <div className='profile-main-container'>
           <span className='profile-username-display'>{userName}</span>
-          {followButton}
+          <span id="profile-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span>
           <div className='profile-name-container'><div><h3>{fName}</h3></div><div><h3>{lName}</h3></div></div>
           <div className='profile-follow-container'><span className='profile-follow-count'>{followerNumber} Followers</span><span className='profile-follow-count'>{followingNumber} Following</span></div>
           <div className='profile-photo-gallery'>

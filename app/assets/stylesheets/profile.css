@@ -58,3 +58,21 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+#profile-follow-btn {
+  color: white;
+  background: blue;
+  height: 20px;
+  width: 75px;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#profile-follow-btn:hover {
+  background: rgb(0, 89, 255);
+}
+
