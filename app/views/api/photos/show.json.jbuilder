@@ -2,20 +2,36 @@ json.photo do
   json.extract! @photo, :id, :title, :description, :created_at
   json.pxURL url_for(@photo.px)
 end
-  json.user do 
-    json.extract! @photo.creator, :id, :username, :fname, :lname, :photo_ids, :following_ids, :follower_ids
-  end
 
-  json.comments do 
-    @photo.comments.each do |comment|
-      json.set! comment.id do
-        json.extract! comment, :id, :body, :user_id, :photo_id
-        json.extract! comment.user, :username
+json.user do 
+  json.extract! @photo.creator, :id, :username, :fname, :lname, :photo_ids, :following_ids, :follower_ids
+end
+
+json.comments do 
+  @photo.comments.each do |comment|
+    json.set! comment.id do
+      json.extract! comment, :id, :body, :user_id, :photo_id
+      json.extract! comment.user, :username
+    end
+  end
+end
+
+json.follows do
+  json.followings do 
+    @photo.creator.followings.each do |following|
+      json.set! following.id do 
+        json.extract! following, :id, :follower_id, :followed_id
       end
     end
   end
-
-
+  json.followers do 
+    @photo.creator.followers.each do |follower| 
+      json.set! follower.id do 
+        json.extract! follower, :id, :follower_id, :followed_id
+      end
+    end
+  end
+end
 
 # json.photo do
 
