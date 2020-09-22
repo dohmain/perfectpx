@@ -37,7 +37,6 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    debugger;
     const photos = Object.values(this.props.photos).map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
     const user = this.props.user[this.props.match.params.userId];
     let userName, fName, lName, followingNumber, followerNumber;

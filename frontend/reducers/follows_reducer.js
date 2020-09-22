@@ -1,4 +1,5 @@
 import { RECEIVE_FOLLOW, UNFOLLOW_USER } from '../actions/follow_actions';
+import { RECEIVE_PHOTO } from '../actions/photo_actions';
 import { RECEIVE_USER_PROFILE } from '../actions/user_actions';
 
 const followsReducer = (state = {}, action) => {
@@ -17,6 +18,9 @@ const followsReducer = (state = {}, action) => {
       let newState = state;
       delete newState.followers[Object.keys(action.follow.follows.followers)];
       return Object.assign({}, newState);
+
+    case RECEIVE_PHOTO:
+      return Object.assign({}, state, action.photo.follows)
     default:
       return state;
   }

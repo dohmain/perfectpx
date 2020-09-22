@@ -64,3 +64,8 @@
 .photo-details-description {
   padding: 5px 0;
 }
+
+#photoshow-follow-btn {
+  color: blue;
+  cursor: pointer;
+}

@@ -5,10 +5,36 @@ import { Link } from 'react-router-dom';
 class PhotoShow extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      follow: false, 
+    }
+    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
     this.props.getPhoto(this.props.match.params.photoId);
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    let follow = false;
+    if (nextProps.follows.followers && nextProps.session) {
+      follow = Object.values(nextProps.follows.followers).map(follow => follow.follower_id).includes(nextProps.session.id); 
+    }
+    return { follow }
+  }
+
+  toggleFollow(action) {
+    event.preventDefault();
+    if (action === "Unfollow") {
+      const follow = Object.values(this.props.follows.followers).filter(follower => follower.follower_id === this.props.session.id)[0];
+      this.props.unFollow(follow);
+    } else if (action === "Follow") {
+      const follow = {
+        follower_id: this.props.session.id,
+        followed_id: this.props.user[Object.keys(this.props.user)].id
+      }
+      this.props.postFollow(follow)
+    }
   }
 
   render() {
@@ -26,6 +52,9 @@ class PhotoShow extends React.Component {
       comments = this.props.comments;
     }
     if (!px) return null;
+
+    const followButtonStatus = this.state.follow ? "Unfollow" : "Follow";
+
     return (
       <div className='photo-show-page-container'>
         <div className='photo-show-image-container'>        
@@ -36,7 +65,7 @@ class PhotoShow extends React.Component {
             <div className='photo-details-main'>
               <div className='photo-title-name'>
                 <div className='photo-details-title'>{px.title}</div>
-                <div className='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${userId}`}>{userFname} {userLname}</Link></div>
+                <div className='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${userId}`}>{userFname} {userLname}</Link> &bull; <span id="photoshow-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span></div>
               </div>
               <div className='photo-details-sub'>
                 <div className='photo-details-uploaded-date'>
