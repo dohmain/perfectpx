@@ -36,7 +36,7 @@ class ProfilePage extends React.Component {
     const photos = user.photos.map( photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))
     return (
       <div className='main-content-box'>
-        <div id='profile-heading'>
+        <div id='profile-heading-container'>
           <div id='profile-names-container'>
             <div id='profile-username-container'><span id='profile-username-display'>{user.username}</span></div>
             <div id='profile-name-container'><span id='profile-name-display'>{user.fname} {user.lname}</span></div>
@@ -55,7 +55,7 @@ class ProfilePage extends React.Component {
             <span className='profile-photo-gallery-heading'>PHOTOS</span>
           </div> */}
         </div>
-        <div className='profile-photos-container'>
+        <div id='photo-gallery-container'>
             {photos}
         </div>
       </div>

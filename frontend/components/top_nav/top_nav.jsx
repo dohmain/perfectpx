@@ -1,64 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import Dropdown from './dropdown';
 
 class TopNav extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
-  onclick(event) {
-    if (!event.target.matches('.header-user-dropbtn')) {
-      let dropdowns = document.getElementsByClassName('header-user-dropdown-content');
-      let i;
-      for (i = 0; i < dropdowns.length; i++) {
-        let openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-  handleDropdown() {
-    return document.getElementById('userDropdown').classList.toggle('show');
-  };
 
   render() {
-    const right_nav = this.props.currentUser ? (
-      <>
-        <div className='header-user-dropdown'>
-          <img src={window.userHeaderIconURL} onClick={() => this.handleDropdown()} className='header-user-dropbtn header-user-icon' />
-          <div id='userDropdown' className='header-user-dropdown-content'>
-            <Link to={`/users/${this.props.currentUser}`} className='dropdown-link'>Profile</Link>
-            <Link to={`/users/${this.props.currentUser}/my_information`} className='dropdown-link'>Settings</Link>
-            <br/>
-            <a className='dropdown-link' onClick={this.props.logout}>Log out</a>
-          </div>
-        </div>
-        <Link to='/upload' className='header-upload-button'>Upload</Link>
-      </>
-    ) : (
-      <>
-        <Link to='/login' className='header-login-button'>Log In</Link>
-        <Link to='/signup' className='header-signup-button'>Sign Up</Link> 
-      </>
-    )
-  
+
     return (
-      <div className='top-nav-container'>
-        <div className='top-nav-logo-link-container'>
-          <div className='logo-link-container'>
-            <Link to='/' className='logo-link'>PERFECTpx</Link>
+      <div id='header-container'>
+        <div id='header-left-container'>
+          <div id='header-logo'>
+            PERFECTpx
+          </div>
+          <div id='header-links'>
+            <div className='header-link'>
+              Discover
             </div>
-          <div className='top-nav-link-container'>
-            <Link to='/discover' className='top-nav-link'>Discover</Link>
-            <a href='https://www.linkedin.com/in/joe-doh/' className='top-nav-link'>LinkedIn</a>
-            <a href='https://github.com/dohmain' className='top-nav-link'>Github</a>
+            <div className='header-link'>
+              LinkedIn            
+            </div>
+            <div className='header-link'>
+              Github
+            </div>
           </div>
         </div>
-        <div className='top-nav-right'>
-          {right_nav}
+        <div id='header-right-container'>
+          <div className='header-link' id='header-user-button'>
+            <Dropdown user={this.props.currentUser} logout={this.props.logout}/>
+          </div>
+          <div className='header-link' id="header-upload-button">
+            {this.props.currentUser ? "Upload" : "Sign Up"}
+          </div>
         </div>
       </div>
     )

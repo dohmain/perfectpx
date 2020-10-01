@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PhotoIndexItem = ({ photo }) => {
   return (
-    <div className='gallery-index-photo'>
+    <div className='gallery-index-photo-container'>
       <Link to={`/photo/${photo.id}`}>
         <img className='photo-gallery-photo-item' src={photo.pxURL} />
       </Link>

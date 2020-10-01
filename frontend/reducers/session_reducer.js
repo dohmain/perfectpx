@@ -10,7 +10,7 @@ export default (state = {}, action) => {
       return Object.assign({}, state, {id: action.user.user.id});
       
     case LOGOUT_CURRENT_USER:
-      return {};
+      return null;
 
     case RECEIVE_FOLLOW:
       return Object.assign({}, state, action.follow.session);
