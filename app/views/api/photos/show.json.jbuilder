@@ -10,7 +10,7 @@ end
 json.comments do 
   @photo.comments.each do |comment|
     json.set! comment.id do
-      json.extract! 'api/comment/comment', comment: comment
+      json.partial! 'api/comments/comment', comment: comment
     end
   end
 end
