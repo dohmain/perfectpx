@@ -19,7 +19,6 @@ class ProfilePage extends React.Component {
   }
   componentDidUpdate(prevProps) {
     if (this.props.user !== prevProps.user) {
-      debugger
       this.setState({
         username: this.props.user.username,
         fname: this.props.user.fname,

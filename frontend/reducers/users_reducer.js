@@ -20,10 +20,10 @@ const usersReducer = (state = {}, action) => {
       return Object.assign({}, state, action.photos.users );
 
     case RECEIVE_FOLLOW:
-      return Object.assign({}, {[action.follow.user.id]: action.follow.user})
+      return Object.assign({}, action.follow.user)
 
     case UNFOLLOW_USER: 
-      return Object.assign({}, {[action.follow.user.id]: action.follow.user})
+      return Object.assign({}, action.follow.user)
 
     default:
       return state;

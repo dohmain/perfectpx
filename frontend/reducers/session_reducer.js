@@ -11,16 +11,6 @@ export default (state = {}, action) => {
       
     case LOGOUT_CURRENT_USER:
       return null;
-
-    case RECEIVE_FOLLOW:
-      return Object.assign({}, state, action.follow.session);
-
-    case UNFOLLOW_USER: 
-      return Object.assign({}, state, action.follow.session);
-
-    case RECEIVE_PHOTO: 
-      return state;
-      // update with reference to new photo
       
     default:
       return state;
