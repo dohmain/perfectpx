@@ -14,7 +14,6 @@ class Dropdown extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    debugger;
     if (this.props.user !== prevProps.user) {
       debugger;
       this.setState({
@@ -25,7 +24,6 @@ class Dropdown extends React.Component {
   }
 
   handleClick() {
-    debugger
     if (!this.state.open) {
       document.addEventListener('click', this.handleOutsideClick, false);
     } else {
@@ -47,7 +45,6 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    debugger;
 
     const headerMenu = this.state.loggedIn ? (
       <div>
