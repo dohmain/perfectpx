@@ -5,7 +5,7 @@ import { getPhotos } from '../../actions/photo_actions';
 const mapStateToProps = state => {
   return {
     photos: state.entities.photos,
-    users: state.entities.users
+    // users: state.entities.users
   }
 };
 
