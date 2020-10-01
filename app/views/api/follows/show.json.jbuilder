@@ -7,9 +7,10 @@ json.follows do
 end
 
 json.user do 
-  json.partial! 'api/users/user', user: @follow.followed
-end
-
-json.session do 
-  json.partial! 'api/users/user', user: @follow.follower
+  json.set! @follow.followed.id do
+    json.partial! 'api/users/user', user: @follow.followed
+  end
+  json.set! @follow.follower.id do
+    json.partial! 'api/users/user', user: @follow.follower
+  end
 end
