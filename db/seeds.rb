@@ -25,7 +25,7 @@ user10 = User.create!(email: 'selene@coven.com', password: 'hunter2020', usernam
 user11 = User.create!(email: 'kapow@darkhorse.com', password: 'hunter2020', username: 'Wonder Woman', fname: 'Diana', lname: 'Prince')
 user12 = User.create!(email: 'demo@demo.com', password: 'hunter2020', username: 'Demolition Man', fname: 'Demo', lname: 'User')
 
-px1 = Photo.create!(title: 'Camping Games', description: 'Deck of cards + Fall + Camping', creator_id: user1.id, unsplashURL: 'https://unsplash.com/photos/kXF5CdmJh88', unsplashUserURL: 'https://unsplash.com/@lureofadventure', unsplashName: 'Ali Kazal')
+px1 = Photo.create!(title: 'Canadian National Parks playing cards', description: 'white and blue playing cards on brown dried leaves', creator_id: user1.id, unsplashURL: 'https://unsplash.com/photos/kXF5CdmJh88', unsplashUserURL: 'https://unsplash.com/@lureofadventure', unsplashName: 'Ali Kazal')
 file1 = open('https://perfectpx-seeds.s3.amazonaws.com/ali-kazal-kXF5CdmJh88-unsplash.jpg')
 px1.px.attach(io: file1, filename: 'ali-kazal-kXF5CdmJh88-unsplash.jpg')
 Comment.create!(user_id: user2.id, photo_id: px1.id, body: 'awesome picture!')
@@ -34,7 +34,7 @@ Comment.create!(user_id: user7.id, photo_id: px1.id, body: 'Amazing work! Very i
 Comment.create!(user_id: user12.id, photo_id: px1.id, body: 'Stunning capture')
 Comment.create!(user_id: user11.id, photo_id: px1.id, body: 'So beautiful nature scenery! Impressive work!')
 
-px2 = Photo.create!(title: 'purrr', description: 'napping cat', creator_id: user2.id, unsplashURL: 'https://unsplash.com/photos/jzPbnpoaIHw', unsplashUserURL: 'https://unsplash.com/@alison_wang', unsplashName: 'Alison Wang')
+px2 = Photo.create!(title: 'purrr', description: 'white and brown tabby cat lying on white textile', creator_id: user2.id, unsplashURL: 'https://unsplash.com/photos/jzPbnpoaIHw', unsplashUserURL: 'https://unsplash.com/@alison_wang', unsplashName: 'Alison Wang')
 file2 = open('https://perfectpx-seeds.s3.amazonaws.com/alison-wang-jzPbnpoaIHw-unsplash.jpg')
 px2.px.attach(io: file2, filename: 'alison-wang-jzPbnpoaIHw-unsplash.jpg')
 Comment.create!(user_id: user1.id, photo_id: px2.id, body: 'Excellent photography')
