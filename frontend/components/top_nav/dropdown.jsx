@@ -15,7 +15,6 @@ class Dropdown extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.user !== prevProps.user) {
-      debugger;
       this.setState({
         loggedIn: this.props.user ? true : false,
         open: false
