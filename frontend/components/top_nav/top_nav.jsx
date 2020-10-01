@@ -1,25 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Dropdown from './dropdown';
 
 class TopNav extends React.Component {
 
   render() {
-
+    const upButton = this.props.currentUser ? <Link to='/upload'>Upload</Link> : <Link to='/signup'>Sign Up</Link>;
     return (
       <div id='header-container'>
         <div id='header-left-container'>
           <div id='header-logo'>
-            PERFECTpx
+            <Link to ='/'>PERFECTpx</Link>
           </div>
           <div id='header-links'>
             <div className='header-link'>
-              Discover
+              <Link to='/discover'>Discover</Link>
             </div>
             <div className='header-link'>
-              LinkedIn            
+              <a href='https://www.linkedin.com' target='_blank'>LinkedIn</a>
             </div>
             <div className='header-link'>
-              Github
+              <a href='https://www.github.com' target='_blank'>Github</a>
             </div>
           </div>
         </div>
@@ -28,7 +29,7 @@ class TopNav extends React.Component {
             <Dropdown user={this.props.currentUser} logout={this.props.logout}/>
           </div>
           <div className='header-link' id="header-upload-button">
-            {this.props.currentUser ? "Upload" : "Sign Up"}
+            {upButton}
           </div>
         </div>
       </div>
