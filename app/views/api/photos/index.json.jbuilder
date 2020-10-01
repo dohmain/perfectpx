@@ -10,7 +10,7 @@ end
 json.users do 
     @photos.each do |photo|
         json.set! photo.creator.id do 
-            json.extract! photo.creator, :id, :username, :email, :fname, :lname, :photo_ids, :follower_ids, :following_ids
+            json.partial! 'api/users/user', user: photo.creator
         end
     end
 end

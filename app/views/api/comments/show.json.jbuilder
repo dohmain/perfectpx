@@ -1,4 +1,3 @@
 json.comment do 
-  json.extract! @comment, :id, :user_id, :photo_id, :body
-  json.extract! @comment.user, :username
+  json.partial! 'api/comments/comment', comment: @comment
 end

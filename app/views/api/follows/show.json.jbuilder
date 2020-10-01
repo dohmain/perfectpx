@@ -1,15 +1,15 @@
 json.follows do
   json.followers do 
     json.set! @follow.id do 
-      json.extract! @follow, :id, :follower_id, :followed_id
+      json.partial! 'api/follows/follow', follow: @follow
     end
   end
 end
 
 json.user do 
-  json.extract! @follow.followed, :id, :username, :fname, :lname, :photo_ids, :following_ids, :follower_ids
+  json.partial! 'api/users/user', user: @follow.followed
 end
 
 json.session do 
-  json.extract! @follow.follower, :id, :username, :fname, :lname, :photo_ids, :following_ids, :follower_ids
+  json.partial! 'api/users/user', user: @follow.follower
 end
