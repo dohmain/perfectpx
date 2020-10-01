@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 class SplashPage extends React.Component {
 
   componentDidMount() {
-    this.props.getPhotos().then(() => {
-
-      const splashURL = this.props.photo ? this.props.photo.pxURL : null;
-      document.getElementById("splash-image").style.backgroundImage = `url(${splashURL})`;
-    })
+    document.getElementById("splash-image").style.backgroundImage = `url(${window.splashImageURL})`;
   }
 
   render() {
@@ -53,7 +49,6 @@ class SplashPage extends React.Component {
           </div>
         </div>
       </div>
-
     )
   }
 };
