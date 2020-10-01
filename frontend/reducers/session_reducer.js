@@ -7,7 +7,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, state, action.user.user);
+      return Object.assign({}, state, {id: action.user.user.id});
       
     case LOGOUT_CURRENT_USER:
       return {};

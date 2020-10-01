@@ -4,12 +4,11 @@ import { fetchUser } from '../../actions/user_actions';
 import { getPhotos } from '../../actions/photo_actions';
 import { postFollow, unFollow } from '../../actions/follow_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
-    user: state.entities.users,
-    photos: state.entities.photos,
+    user: state.entities.users[ownProps.match.params.userId],
+    photos: Object.values(state.entities.photos),
     follows: state.entities.follows,
-    session: state.session
   })
 };
 
