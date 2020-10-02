@@ -60,23 +60,25 @@ class PhotoShow extends React.Component {
           <img className='photo-show-image' src={px.pxURL} />
         </div>
         <div className='photo-details-container'>
-          <div className='photo-details-left-col'>
+          <div className='photo-details-cols' id='photo-details-left-col'>
+
             <div className='photo-details-main'>
               <div className='photo-title-name'>
-                <div className='photo-details-title'>{px.title}</div>
-                <div className='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${userId}`}>{userFname} {userLname}</Link> &bull; <span id="photoshow-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span></div>
+                <div id='photo-details-title'>{px.title}</div>
+                <div id='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${userId}`}>{userFname} {userLname}</Link> &bull; <span id="photoshow-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span></div>
               </div>
               <div className='photo-details-sub'>
-                <div className='photo-details-uploaded-date'>
-                  Uploaded: {uploadTime}
+                <div id='photo-details-uploaded-date'>
+                  <span>Uploaded:</span> {uploadTime}
                 </div>
-                <div className='photo-details-description'>
+                <div id='photo-details-description'>
                   {px.description}
                 </div>
               </div>
             </div>
+
           </div>
-          <div className='photo-details-right-col'>
+          <div className='photo-details-cols' id='photo-details-right-col'>
             <CommentsContainer comments={comments} photo={photo}/>
           </div>
         </div>
