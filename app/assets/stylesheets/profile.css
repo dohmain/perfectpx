@@ -1,78 +1,53 @@
-/* .profile-main-container {
+#profile-heading-container {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  width: 100%;
-  top: 80px;
-  padding-top: 100px;
-  align-items: center;
-  background: white;
-  border-bottom: 1px solid lightgray;
+  justify-content: center;
+  background-color: white;
 }
 
-.profile-username-display {
-  font-size: 32px;
-}
-
-.profile-name-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.profile-name-container > div {
-  padding: 0 10px;
-}
-
-.profile-follow-container {
+.profile-block {
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
-  width: 100%;
-  border-bottom: 1px solid lightgray;
 }
 
-.profile-follow-count {
-  color: gray;
-  padding: 0 10px;
-}
-
-.profile-follow-count:hover {
-  color: lightgray;
-}
-
-.profile-photo-gallery {
-  padding: 15px 0;
-  border-bottom: 2px solid blue;
-}
-
-.profile-photo-gallery-heading {
-  font-weight: bold;
-  color: blue;
-}
-
-.profile-photos-container {
-  width: 100%;
-  padding: 0 35px;
-  box-sizing: border-box;
+#profile-gallery , #profile-gallery-heading {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
-#profile-follow-btn {
-  color: white;
-  background: blue;
-  height: 20px;
-  width: 75px;
-  font-size: 14px;
-  padding: 5px;
-  border-radius: 20px;
-  text-align: center;
+#profile-username-display {
+  font-size: 1.5em;
   font-weight: bold;
-  cursor: pointer;
+  padding: 1.5em 0 .35em 0;
 }
 
-#profile-follow-btn:hover {
-  background: rgb(0, 89, 255);
+#profile-fname-container, #profile-lname-container,
+#follow-right-container, #follow-left-container {
+  width: 50%;
+  padding: 1em .35em;
+  font-size: 1em;
 }
- */
+
+#profile-fname-container, #follow-left-container {
+  text-align: end;
+}
+
+#profile-lname-container, #follow-right-container {
+  text-align: start;
+}
+
+.profile-name, .follow-text {
+  font-weight: bold;
+}
+
+#profile-photo-heading {
+  font-weight: bold;
+  height: 1.2em;
+  color: #0870d1;
+  border-bottom: 2px solid #0870d1;
+}
+
+#profile-photo-heading:hover {
+  color: #368df7;
+  border-bottom-color: #368df7;
+}

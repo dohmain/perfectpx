@@ -37,14 +37,26 @@ class ProfilePage extends React.Component {
       <div className='main-content-box'>
         <div id='profile-heading-container'>
           <div id='profile-names-container'>
-            <div id='profile-username-container'><span id='profile-username-display'>{user.username}</span></div>
-            <div id='profile-name-container'><span id='profile-name-display'>{user.fname} {user.lname}</span></div>
+            <div className='profile-block' id='profile-username-container'><span id='profile-username-display'>{user.username}</span></div>
+            <div className='profile-block' id='profile-name-container'>
+              <div id='profile-fname-container'>
+                <span className='profile-name' id='profile-fname'>{user.fname}</span>
+              </div>
+              <div id='profile-lname-container'>
+                <span className='profile-name' id='profile-lname'>{user.lname}</span>
+              </div>
+            </div>
           </div>
-          <div id='profile-follow-button-container'>
+          <div className='profile-block' id='profile-follow-button-container'>
             <button id='profile-follow-button'>Follow</button>
           </div>
-          <div id='profile-stats-container'>
-            {user.followers} Followers, {user.following} Following
+          <div className='profile-block' id='profile-stats-container'>
+            <div id='follow-left-container'>
+              <span className='follow-count'>{user.followers}</span> <span className='follow-text'>Followers</span>
+            </div>
+            <div id='follow-right-container'>
+              <span className='follow-count'>{user.following}</span> <span className='follow-text'>Following</span>
+            </div>
           </div>
           
           {/* <span id="profile-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span>
@@ -53,9 +65,12 @@ class ProfilePage extends React.Component {
           <div className='profile-photo-gallery'>
             <span className='profile-photo-gallery-heading'>PHOTOS</span>
           </div> */}
+        <div id='profile-gallery-heading'><span id='profile-photo-heading'>Photos</span></div>
         </div>
-        <div id='photo-gallery-container'>
-            {photos}
+        <div id='profile-gallery'>
+          <div id='photo-gallery-container'>
+              {photos}
+          </div>
         </div>
       </div>
     )

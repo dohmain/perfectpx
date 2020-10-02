@@ -78,5 +78,6 @@ table {
  .main-content-box {
 	 display: flex;
 	 justify-content: center;
+	 flex-direction: column;
  }
  
