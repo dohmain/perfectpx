@@ -8,45 +8,63 @@
 
 .splash-image-content {
   position: relative;
-  width: 500px;
-  left: 200px;
-  top: 200px;
+  max-width: 600px;
+  margin-left: 10%;
+  padding-top: 150px;
   color: white;
-  text-shadow: 2px 2px 3px black;
 }
 
-.splash-signup-button {
-  display: flex;
-  height: 40px;
-  align-items: center;
-  text-decoration: none;
-  padding: 0px 15px;
-  color: black;
-  border: 2px solid white;
-  border-radius: 20px;
-  font-size: 20px;
+.splash-image-content > h1 {
+  font-size: 3em;
   font-weight: bold;
-  font-family: sans-serif;
-  background: white;
-  text-shadow: 0 0 black;
-  width: 100px;
-  text-align: center;
+  padding: .3em 0;
 }
 
-.splash-signup-button:hover {
+.splash-image-content > p {
+  padding: 1em 0 1.5em 0;
+}
+
+.splash-signup-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  height: 60px;
+  border-radius: 30px;
+  background: white;
+  width: 200px;
+}
+
+.splash-signup-button-container > a {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+}
+
+#banner-signup:hover {
   background:#d7d8d8;
   border: 2px solid #d7d8d8;
+  cursor: pointer;
+  text-decoration: none;
 }
+
 .splash-different {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* display: flex; */
-  /* flex-direction: column; */
+  padding-bottom: 25px;
 }
 
-.splash-different-heading {
-  margin: 0 auto;
+.splash-different-heading, .join-bottom > h1 {
+  margin: 1em auto;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .different-items {
@@ -58,6 +76,20 @@
 .different-item {
   width: 25%;
   padding: 0 25px;
+}
+
+.different-item > i {
+  padding: .1em .1em;
+}
+
+.different-item > h3 {
+  padding: .3em 0;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.different-item > p {
+  padding: .3em 0;
 }
 
 .join-bottom-container {
@@ -76,4 +108,26 @@
 
 #signup-button-container {
   margin-top: 15px;
+}
+
+.join-bottom {
+  color: white;
+  padding-bottom: 2.2em;
+}
+
+#bottom-signup > a {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+
+#bottom-signup:hover > a{
+  color: #368df7;
+}
+
+#join-bottom-p {
+  padding-bottom: 2em;
 }

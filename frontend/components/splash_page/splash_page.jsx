@@ -9,12 +9,14 @@ class SplashPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className='main-content-box splash' id='splash-image'>
+      <div className='main-content-box'>
+        <div className='splash' id='splash-image'>
           <div className="splash-image-content">
             <h1>Discover and share the world's best photos</h1>
             <p>Get inspired with incredible photos from diverse styles and genres around the world. We're not guided by fads—just great photography</p>
-            <Link to='/signup' className='splash-signup-button'>Sign Up</Link>
+            <div className='splash-signup-button-container' id='banner-signup'>
+              <Link to='/signup' className='splash-signup-button'>Sign Up</Link>
+            </div>
           </div>
         </div>
         <div>
@@ -43,9 +45,9 @@ class SplashPage extends React.Component {
         </div>
         <div className="join-bottom-container">
           <div className="join-bottom">
-            <h1 id="join-h1">Join our photography community today</h1>
+            <h1>Join our photography community today</h1>
             <p id="join-bottom-p">We want fresh, creative talent like you. Join our global network of like-minded creators to be inspired by incredible photos daily, and get rewarded for your talents.</p>
-            <div id="signup-button-container"><Link to='/signup' className='splash-signup-button'>Sign Up</Link></div>          
+            <div className='splash-signup-button-container' id="bottom-signup"><Link to='/signup' className='splash-signup-button'>Sign Up</Link></div>          
           </div>
         </div>
       </div>

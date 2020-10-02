@@ -5,7 +5,7 @@ import Dropdown from './dropdown';
 class TopNav extends React.Component {
 
   render() {
-    const upButton = this.props.currentUser ? <Link to='/upload'><i class="fas fa-arrow-up"></i> Upload</Link> : <Link to='/signup'>Sign Up</Link>;
+    const upButton = this.props.currentUser ? <Link to='/upload'><i className="fas fa-arrow-up"></i> Upload</Link> : <Link to='/signup'>Sign Up</Link>;
     return (
       <div id='header-container'> 
         <div id='header-left-container'>
