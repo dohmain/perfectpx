@@ -44,7 +44,6 @@ class Dropdown extends React.Component {
   }
 
   render() {
-
     const headerMenu = this.state.loggedIn ? (
       <div>
         <div className="dropdown" id="dropdown" ref={node => { this.node = node; }}>
@@ -52,10 +51,9 @@ class Dropdown extends React.Component {
           {this.state.open && (
             <div className="dropdown-menu">
               <ul>
-                <li><Link to={`/users/${this.props.user}`} className='dropdown-link'>Profile</Link></li>
-                <li><Link to={`/users/${this.props.currentUser}/my_information`} className='dropdown-link'>Settings</Link></li>
-                <hr />
-                <li><Link to={`/`} className='dropdown-link' onClick={this.handleLogout}>Log out</Link></li>
+                <li className ='dropdown-link-li'><Link to={`/users/${this.props.user.id}`} className='dropdown-link'>Profile</Link></li>
+                {/* <li><Link to={`/users/${this.props.user.id}/my_information`} className='dropdown-link'>Settings</Link></li> */}
+                <li className ='dropdown-link-li'><Link to={`/`} className='dropdown-link' onClick={this.handleLogout}>Log out</Link></li>
                 {/* <li><Link to={`/`} className='dropdown-link' onClick={this.props.logout}>Log out</Link></li> */}
               </ul>
             </div>
@@ -63,7 +61,7 @@ class Dropdown extends React.Component {
         </div>
       </div>
     ) : (
-      <div><Link to='/login' id='header-login-button'>Log In</Link></div>
+      <div className='header-link'><Link to='/login' id='header-login-button'>Log In</Link></div>
     )
 
     return (

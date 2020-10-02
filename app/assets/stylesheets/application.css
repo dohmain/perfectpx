@@ -64,10 +64,15 @@ table {
 }
 
  body {
-   background: whitesmoke;
+   background: #F7F8FA;
    font-family: sans-serif;
    margin: 0;
    width: 100%;
+ }
+
+ sup {
+	 vertical-align: super;
+	 font-size: smaller;
  }
  
   /*

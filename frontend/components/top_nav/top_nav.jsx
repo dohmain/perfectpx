@@ -5,12 +5,12 @@ import Dropdown from './dropdown';
 class TopNav extends React.Component {
 
   render() {
-    const upButton = this.props.currentUser ? <Link to='/upload'>Upload</Link> : <Link to='/signup'>Sign Up</Link>;
+    const upButton = this.props.currentUser ? <Link to='/upload'><i class="fas fa-arrow-up"></i> Upload</Link> : <Link to='/signup'>Sign Up</Link>;
     return (
-      <div id='header-container'>
+      <div id='header-container'> 
         <div id='header-left-container'>
           <div id='header-logo'>
-            <Link to ='/'>PERFECTpx</Link>
+            <Link to ='/'>PERFECT<sup>px</sup></Link>
           </div>
           <div id='header-links'>
             <div className='header-link'>
@@ -29,7 +29,7 @@ class TopNav extends React.Component {
             <Dropdown user={this.props.currentUser} logout={this.props.logout}/>
           </div>
           <div className='header-link' id="header-upload-button">
-            {upButton}
+            {upButton} 
           </div>
         </div>
       </div>

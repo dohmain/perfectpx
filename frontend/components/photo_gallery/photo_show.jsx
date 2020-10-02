@@ -19,8 +19,7 @@ class PhotoShow extends React.Component {
     let follow = false;
     if (nextProps.follows.followers && nextProps.session) {
       follow = Object.values(nextProps.follows.followers).map(follow => follow.follower_id).includes(nextProps.session.id); 
-    }
-    return { follow }
+    } return { follow }
   }
 
   toggleFollow(action) {
@@ -31,7 +30,7 @@ class PhotoShow extends React.Component {
     } else if (action === "Follow") {
       const follow = {
         follower_id: this.props.session.id,
-        followed_id: this.props.user[Object.keys(this.props.user)].id
+        followed_id: this.props.photo[this.props.match.params.photoId].creator_id
       }
       this.props.postFollow(follow)
     }
