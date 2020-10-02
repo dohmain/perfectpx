@@ -1,21 +1,17 @@
 #photo-gallery-container {
-  width: 100%;
-  padding: 0 35px;
-  box-sizing: border-box;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .gallery-index-photo-container {
-  /* width: 320px; */
+  width: 320px;
   height: 200px;
-  text-align: center;
   background: lightgray;
-}
-
-.photo-gallery-photo-item {
-  width: auto;
-  height: 100%;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 5px;
 }

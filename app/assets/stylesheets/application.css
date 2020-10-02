@@ -74,4 +74,9 @@ table {
 	 vertical-align: super;
 	 font-size: smaller;
  }
+
+ .main-content-box {
+	 display: flex;
+	 justify-content: center;
+ }
  

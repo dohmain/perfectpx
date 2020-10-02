@@ -33,6 +33,7 @@
   font-weight: 500;
   text-decoration: none;
   color: black;
+  margin-right: 1em;
 }
 
 #header-logo > a:hover , .header-link > a:hover {
