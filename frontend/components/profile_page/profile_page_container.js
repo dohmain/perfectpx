@@ -7,7 +7,6 @@ import { postFollow, unFollow } from '../../actions/follow_actions';
 const mapStateToProps = (state, ownProps) => {
   let followState;
   if (state.entities.follows.followers) {
-    debugger;
     followState = Object.values(state.entities.follows.followers).some(follow => follow.follower_id === state.session.id);
   }
   return ({

@@ -18,7 +18,6 @@ export default (state = defaultState, action) => {
       return Object.assign({}, action.user.photos,)
 
     case RECEIVE_COMMENT:
-      debugger;
       return Object.assign({}, state, {[action.comment.photo.id]: action.comment.photo});
 
     default:
