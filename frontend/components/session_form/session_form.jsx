@@ -53,42 +53,35 @@ class SessionForm extends React.Component {
       <div className='session-container'>
         <form className='session-form' 
               onSubmit={this.handleSubmit}>
-
-          <h2>{this.props.formTitle}</h2>
-
-          <label className='session-input-label'>Email or Username* 
-            <br/>
-            <input type="text" 
-                  className='session-input-field' 
-                  value={this.state.email} 
-                  onChange={this.handleInput('email')} />
-          </label>
-          <label className='session-input-label'>Password* 
-            <br/>
-            <input type="password" 
-                    className='session-input-field' 
-                    value={this.state.password} 
-                    onChange={this.handleInput('password')} />
-          </label>
-          <div className='session-error-container'>
-          {this.renderErrors()}
+          <div id='session-form-items'>
+            <h2>{this.props.formTitle}</h2>
+            <label className='session-input-label'>
+              <span className='session-field-title'>Email or Username* </span>
+              <input type="text" 
+                className='session-input-field' 
+                value={this.state.email} 
+                onChange={this.handleInput('email')} />
+            </label>
+            <label className='session-input-label'>
+              <span className='session-field-title'>Password* </span>
+              <input type="password" 
+                className='session-input-field' 
+                value={this.state.password} 
+                onChange={this.handleInput('password')} />
+              </label>
+            <div className='session-error-container'>
+              {this.renderErrors()}
+            </div>
+            <input type="submit" 
+              className='session-input-button' 
+              value={this.props.formType} />
+            <input type="button" 
+              className='session-input-button' 
+              value='Continue as Demo user'
+              onClick={this.demoUserLogin} />
+            <div id='no-account'>Don't have an account? <Link to='/signup' id='session-nav-link'>Sign Up</Link></div>
           </div>
-          <br/>
-
-          <input type="submit" 
-                 className='session-input-button' 
-                 value={this.props.formType} />
-          <br/>
-          <input type="button" 
-                  className='session-input-button' 
-                  value='Continue as Demo user'
-                  onClick={this.demoUserLogin} />
-          <br/>
-          <div>Don't have an account? <Link to='/signup' className='session-nav-link'>Sign Up</Link></div>
-          <br/>         
-
         </form>
-        <br/>
       </div>
     );
   }
