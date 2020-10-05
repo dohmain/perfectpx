@@ -1,5 +1,32 @@
-
 .footer-container {
   padding: 10px 100px;
   color: #6d7378;
+}
+
+#footer-sub-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+#footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-attrib {
+  display: flex;
+  justify-content: flex-end;
+  font-size: .75em;
+  padding-left: 2em;
+}
+
+.footer-attrib > a {
+  text-decoration: none;
+  color: #6d7378;
+}
+
+.footer-attrib > a:hover {
+  color: #309058;
 }
