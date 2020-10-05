@@ -38,3 +38,19 @@
   background-color: #2986f7;
   cursor: pointer;
 }
+
+#comment-ul {
+  padding: .35em 0;
+}
+
+.comment-li {
+  padding-bottom: 1em;
+}
+
+.comment-item {
+  padding-bottom: .35em;
+}
+
+#comment-author-display {
+  font-weight: bold;
+}

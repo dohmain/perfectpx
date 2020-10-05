@@ -25,7 +25,7 @@ class Comments extends React.Component {
     return (
       <div className='photo-comments-container'>
         {commentForm}
-        <ul>
+        <ul id='comment-ul'>
           {commentItems}
         </ul>
       </div>
