@@ -50,19 +50,18 @@ class PhotoForm extends React.Component {
     return (
       <div className='session-container'>
         <form className='session-form' onSubmit={this.handleSubmit}>
-          <br/>
-          <h3>Upload to perfectpx!</h3>
+          <h2>Upload to perfectpx!</h2>
           <input type="file"
             onChange={this.handleFile} />
           {preview}
-          <label className='session-input-label'>Title:<br/>
+          <label className='session-input-label'><span className='session-field-title'>Title: </span>
           <input type='text'
             value={this.state.title}
             className='session-input-field'
             onChange={this.handleInput('title')} />
           </label>
 
-          <label className='session-input-label'>Description:<br/>
+          <label className='session-input-label'><span className='session-field-title'>Description: </span>
             <textarea
               value={this.state.description}
               className='upload-text-area'
@@ -70,7 +69,6 @@ class PhotoForm extends React.Component {
           </label>
 
           <button className='session-input-button'>Upload!</button>
-          <br/>
         </form>
       </div>
     );

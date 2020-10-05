@@ -1,5 +1,10 @@
 .upload-preview-image {
-  width: 350px;
+  display: block;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 1em;
 }
 
 .upload-text-area {
@@ -9,4 +14,15 @@
   margin: 10px 0px;
   border: 1px solid lightgray;
   border-radius: 3px;
+}
+
+.session-form > h2 {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em
+}
+
+input[type='file'] {
+  padding: .35em;
 }
