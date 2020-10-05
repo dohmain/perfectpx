@@ -17,10 +17,10 @@ class TopNav extends React.Component {
               <Link to='/discover'>Discover</Link>
             </div>
             <div className='header-link'>
-              <a href='https://www.linkedin.com' target='_blank'>LinkedIn</a>
+              <a href='https://github.com/dohmain/perfectpx' target='_blank'>Github</a>
             </div>
             <div className='header-link'>
-              <a href='https://www.github.com' target='_blank'>Github</a>
+              <a href='https://www.linkedin.com/in/joe-doh/' target='_blank'>LinkedIn</a>
             </div>
           </div>
         </div>
