@@ -67,6 +67,10 @@
   background-color: #e5e6e9;
 }
 
+.header-user-icon:hover {
+  cursor: pointer;
+}
+
 .dropdown {
   position: relative;
 }
@@ -100,9 +104,9 @@
   align-items: center;
   justify-content: center;
   border: 2px solid black;
-  height: 30px;
-  width: 80px;
-  border-radius: 15px;
+  height: 40px;
+  width: 120px;
+  border-radius: 20px;
   font-size: 14px;
   font-weight: bold;
 }
