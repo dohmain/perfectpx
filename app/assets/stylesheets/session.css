@@ -68,6 +68,10 @@
   background: #2986f7;
 }
 
+.session-input-button:focus {
+  outline: none;
+}
+
 #no-account {
   margin-top: 1em;
 }
