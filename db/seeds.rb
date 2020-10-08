@@ -25,7 +25,17 @@ user10 = User.create!(email: 'selene@coven.com', password: 'hunter2020', usernam
 user11 = User.create!(email: 'kapow@darkhorse.com', password: 'hunter2020', username: 'Wonder Woman', fname: 'Diana', lname: 'Prince')
 user12 = User.create!(email: 'demo@demo.com', password: 'hunter2020', username: 'Demolition Man', fname: 'Demo', lname: 'User')
 
-Follow.create!(follower_id: user1.id, followed_id: user2.id) # check if the fields are correct~~~
+users = User.all.map { |user| user.id }
+(0..11).each do |follower|
+  max = rand(0..11)
+  (0..max).each do |followed| 
+    if follower != followed 
+      Follow.create!(follower_id: users[follower], followed_id: users[followed])
+    else
+      next
+    end
+  end
+end
 
 px1 = Photo.create!(title: 'Canadian National Parks playing cards', description: 'white and blue playing cards on brown dried leaves', creator_id: user1.id, unsplashURL: 'https://unsplash.com/photos/kXF5CdmJh88', unsplashUserURL: 'https://unsplash.com/@lureofadventure', unsplashName: 'Ali Kazal')
 file1 = open('https://perfectpx-seeds.s3.amazonaws.com/ali-kazal-kXF5CdmJh88-unsplash.jpg')
