@@ -4,34 +4,18 @@ import PhotoIndexItem from '../../components/photo_gallery/photo_index_item';
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: "",
-      fname: "",
-      lname: "",
-      followers: "",
-      following: "",
-      photos: [],
-      isFollowed: null,
-    }
     this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
+    debugger;
     this.props.getUser(this.props.match.params.userId);
   }
-  componentDidUpdate(prevProps) {
-    if (this.props.user !== prevProps.user) {
 
-      this.setState({
-        username: this.props.user.username,
-        fname: this.props.user.fname,
-        lname: this.props.user.lname,
-        followers: this.props.user.follower_ids.length,
-        following: this.props.user.following_ids.length,
-        photos: this.props.photos,
-        isFollowed: this.props.isFollowed
-      }
-    )};
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.userId !== prevProps.match.params.userId) {
+      this.props.getUser(this.props.match.params.userId);
+    }
   }
 
   toggleFollow(action) {
@@ -49,9 +33,17 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const user = this.state;
-    const photos = user.photos.map( photo => (<PhotoIndexItem key={photo.id} photo={photo}/>))
-    const followButton = this.state.isFollowed ? "Unfollow" : "Follow";
+    let user = "", followers = [], followings = [], photos = []
+
+    if (this.props.user) {
+      user = this.props.user;
+      photos = this.props.photos.map(photo => (<PhotoIndexItem key={photo.id} photo={photo}/>));
+      followers = this.props.user.follower_ids.length;
+      followings = this.props.user.following_ids.length;
+    }
+    debugger;
+    const followButton = this.props.isFollowed ? "Unfollow" : "Follow";
+    debugger;
     return (
       <div className='main-content-box'>
         <div id='profile-heading-container'>
@@ -71,10 +63,10 @@ class ProfilePage extends React.Component {
           </div>
           <div className='profile-block' id='profile-stats-container'>
             <div id='follow-left-container'>
-              <span className='follow-count'>{user.followers}</span> <span className='follow-text'>Followers</span>
+              <span className='follow-count'>{followers}</span> <span className='follow-text'>Followers</span>
             </div>
             <div id='follow-right-container'>
-              <span className='follow-count'>{user.following}</span> <span className='follow-text'>Following</span>
+              <span className='follow-count'>{followings}</span> <span className='follow-text'>Following</span>
             </div>
           </div>
         <div id='profile-gallery-heading'><span id='profile-photo-heading'>Photos</span></div>
