@@ -54,3 +54,7 @@
 #comment-author-display {
   font-weight: bold;
 }
+
+.active-comment-button {
+  background-color: #0870d1;
+}

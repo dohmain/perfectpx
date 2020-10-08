@@ -27,6 +27,10 @@ class CommentForm extends React.Component {
   }
 
   render() {
+    if (this.state.body != "") {
+      document.getElementById('comment-btn').classList.add('active-comment-button')
+    }
+
     if (this.props.currentUserId === null) {
       return <></>
     } else {
@@ -45,7 +49,7 @@ class CommentForm extends React.Component {
               </label>
             </div>
             <div id='comment-post-button'>
-              <button className='btn comment-btn'>Post</button>
+              <button className='btn comment-btn' id='comment-btn'>Post</button>
             </div>
           </form>
         </div>
