@@ -54,11 +54,12 @@ class PhotoShow extends React.Component {
     const followButtonStatus = this.props.isFollowed ? "Unfollow" : "Follow";
 
     let followButton;
-    debugger;
-    if (this.props.session.id == this.props.photo[this.props.match.params.photoId].creator_id) {
-      followButton = null;
-    } else {
-      followButton = <> &bull; <span id="photoshow-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span></>
+    if(this.props.session) {
+      if (this.props.session.id == this.props.photo[this.props.match.params.photoId].creator_id) {
+        followButton = null;
+      } else {
+        followButton = <> &bull; <span id="photoshow-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span></>
+      }
     }
     return (
       <div className='photo-show-page-container'>

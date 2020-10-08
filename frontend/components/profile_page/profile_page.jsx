@@ -8,7 +8,6 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.getUser(this.props.match.params.userId);
   }
 
@@ -41,17 +40,17 @@ class ProfilePage extends React.Component {
       followers = this.props.user.follower_ids.length;
       followings = this.props.user.following_ids.length;
     }
-    debugger;
     const followButtonText = this.props.isFollowed ? "Unfollow" : "Follow";
 
     let followButton;
-    if (this.props.session.id == this.props.match.params.userId) {
+    if (this.props.session) {
+      if (this.props.session.id == this.props.match.params.userId) {
       followButton = null;
-    } else {
+      } else {
       followButton = <button id='profile-follow-button' onClick={() => this.toggleFollow(followButtonText)}>{followButtonText}</button>
+      }
     }
 
-    debugger;
     return (
       <div className='main-content-box'>
         <div id='profile-heading-container'>
