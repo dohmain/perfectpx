@@ -14,12 +14,11 @@ class PhotoShow extends React.Component {
   componentDidMount() {
     this.props.getPhoto(this.props.match.params.photoId);
   }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    let follow = false;
-    if (nextProps.follows.followers && nextProps.session) {
-      follow = Object.values(nextProps.follows.followers).map(follow => follow.follower_id).includes(nextProps.session.id); 
-    } return { follow }
+  
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.photoId != prevProps.match.params.photoId) {
+      this.props.getPhoto(this.props.match.params.photoId);
+    }
   }
 
   toggleFollow(action) {
@@ -52,8 +51,15 @@ class PhotoShow extends React.Component {
     }
     if (!px) return null;
 
-    const followButtonStatus = this.state.follow ? "Unfollow" : "Follow";
+    const followButtonStatus = this.props.isFollowed ? "Unfollow" : "Follow";
 
+    let followButton;
+    debugger;
+    if (this.props.session.id == this.props.photo[this.props.match.params.photoId].creator_id) {
+      followButton = null;
+    } else {
+      followButton = <> &bull; <span id="photoshow-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span></>
+    }
     return (
       <div className='photo-show-page-container'>
         <div className='photo-show-image-container'>        
@@ -65,7 +71,7 @@ class PhotoShow extends React.Component {
             <div className='photo-details-main'>
               <div className='photo-title-name'>
                 <div id='photo-details-title'>{px.title}</div>
-                <div id='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${userId}`}>{userFname} {userLname}</Link> &bull; <span id="photoshow-follow-btn" onClick={() => this.toggleFollow(followButtonStatus)}>{followButtonStatus}</span></div>
+                <div id='photo-details-name'>by <Link className='photo-details-user-link' to={`/users/${userId}`}>{userFname} {userLname}</Link>{followButton}</div>
               </div>
               <div className='photo-details-sub'>
                 <div id='photo-details-uploaded-date'>
